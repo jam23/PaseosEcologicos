@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <meta charset="utf-8">
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body id="page1">
+    <div class="bg1">
+        <div class="bg2">
+            <div class="main">
+                <!-- header -->
+                <header>
+                    <h1>@Html.ActionLink("your logo here", "Index", "Home")</h1>
+                </header>
+                <div class="box">
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                    </nav>
+                    <!-- header end -->
+                    <!-- content -->
+                    <article id="content">
+                        @RenderSection("featured", required: false)
+                        @RenderBody()
+                    </article>
+                    <!--content end-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <!-- footer -->
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+            <!-- {%FOOTER_LINK} -->
+        </footer>
+        <!-- footer end -->
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/site")
+    <script type="text/javascript"> Cufon.now(); </script>
+    <script>
+        $(document).ready(function () {
+            $('.kwicks').kwicks({
+                max: 500,
+                spacing: 0,
+                event: 'mouseover'
+            });
+
+        })
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
