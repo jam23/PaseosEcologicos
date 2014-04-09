@@ -68,6 +68,7 @@ namespace PaseosEcologicos
                 ));
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/application/app.js",
+                "~/Scripts/application/CompleteReservation.js",
                 "~/Scripts/application/router.js",
                 "~/Scripts/application/*Provider.js",
                 "~/Scripts/application/*Controller.js"

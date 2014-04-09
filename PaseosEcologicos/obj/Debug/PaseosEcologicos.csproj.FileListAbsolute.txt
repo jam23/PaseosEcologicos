@@ -89,3 +89,7 @@ C:\Users\t_felizl\Copy\ADelRosario\Projects\Paseos Ecologicos\PaseosEcologicos\P
 C:\Users\t_felizl\Copy\ADelRosario\Projects\Paseos Ecologicos\PaseosEcologicos\PaseosEcologicos\obj\Debug\PaseosEcologicos.pdb
 C:\Users\t_felizl\Copy\ADelRosario\Projects\Paseos Ecologicos\PaseosEcologicos\PaseosEcologicos\bin\EntityFramework.SqlServer.dll
 C:\Users\t_felizl\Copy\ADelRosario\Projects\Paseos Ecologicos\PaseosEcologicos\PaseosEcologicos\bin\EntityFramework.SqlServer.xml
+C:\Users\t_felizl\Copy\ADelRosario\Projects\Paseos Ecologicos\PaseosEcologicos\PaseosEcologicos\bin\PaseosEcologicos.Model.dll
+C:\Users\t_felizl\Copy\ADelRosario\Projects\Paseos Ecologicos\PaseosEcologicos\PaseosEcologicos\bin\PaseosEcologicos.Services.dll
+C:\Users\t_felizl\Copy\ADelRosario\Projects\Paseos Ecologicos\PaseosEcologicos\PaseosEcologicos\bin\PaseosEcologicos.Model.pdb
+C:\Users\t_felizl\Copy\ADelRosario\Projects\Paseos Ecologicos\PaseosEcologicos\PaseosEcologicos\bin\PaseosEcologicos.Services.pdb

@@ -190,7 +190,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AlojamientosController.cs" />
+    <Compile Include="Controllers\ComidasController.cs" />
+    <Compile Include="Controllers\DeportesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReservacionController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -293,6 +297,7 @@
     <Content Include="Images\title_marker1.jpg" />
     <Content Include="Images\title_marker2.jpg" />
     <Content Include="Images\title_marker3.jpg" />
+    <Content Include="Partials\CompleteReservation.html" />
     <Content Include="Scripts\Adamina_400.font.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
@@ -313,7 +318,13 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\Application\AlojamientosProvider.js" />
     <Content Include="Scripts\Application\app.js" />
+    <Content Include="Scripts\Application\ComidasProvider.js" />
+    <Content Include="Scripts\Application\CompleteReservation.js" />
+    <Content Include="Scripts\Application\DeportesProvider.js" />
+    <Content Include="Scripts\Application\ReservacionController.js" />
+    <Content Include="Scripts\Application\ReservacionesProvider.js" />
     <Content Include="Scripts\atooltip.jquery.js" />
     <Content Include="Scripts\bootstrap-wizard.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -648,6 +659,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PaseosEcologicos.Model\PaseosEcologicos.Model.csproj">
+      <Project>{c15f268b-dc8b-4811-b9a0-c7b77abfdb48}</Project>
+      <Name>PaseosEcologicos.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PaseosEcologicos.Services\PaseosEcologicos.Services.csproj">
+      <Project>{d81eb922-493b-4130-8254-96a78a796c17}</Project>
+      <Name>PaseosEcologicos.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

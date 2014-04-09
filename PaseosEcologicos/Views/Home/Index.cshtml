@@ -6,166 +6,148 @@
     @Styles.Render("~/Content/wizard")
 }
 
-<div class="box1">
-    <div class="wrapper">
-        <div class="row">
-            <div class="col-sm-8">
-                <div class="kwicks-wrapper marg_bot1">
-                    <ul class="kwicks horizontal">
-                        <li>
-                            <img src="images/img1.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="images/img2.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="images/img3.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="images/img4.jpg" alt="">
-                        </li>
-                    </ul>
+<div ng-app="PE">
+    <div ng-controller="ReservacionController">
+        <div class="box1">
+            <div class="wrapper">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="kwicks-wrapper marg_bot1">
+                            <ul class="kwicks horizontal">
+                                <li>
+                                    <img src="images/img1.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="images/img2.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="images/img3.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="images/img4.jpg" alt="">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <h2>Haga su reservacion</h2>
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Juan" ng-model="reservacion.cliente.nombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido">Apellido</label>
+                                <input type="text" class="form-control" id="apellido" placeholder="De la cruz" ng-model="reservacion.cliente.apellido">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Telefono</label>
+                                <input type="text" class="form-control" id="telefono" placeholder="(809) 288-5566" ng-model="reservacion.cliente.telefono">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo electr&oacute;nico</label>
+                                <input type="email" class="form-control" id="email" placeholder="yo@email.com" ng-model="reservacion.cliente.email">
+                            </div>
+                            <button type="button" class="btn btn-default" id="open-wizard">Reservar!</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <h2>Haga su reservacion</h2>
-                <form role="form">
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" placeholder="Juan">
-                    </div>
-                    <div class="form-group">
-                        <label for="apellido">Apellido</label>
-                        <input type="text" class="form-control" id="apellido" placeholder="De la cruz">
-                    </div>
-                    <div class="form-group">
-                        <label for="telefono">Telefono</label>
-                        <input type="text" class="form-control" id="telefono" placeholder="(809) 288-5566">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Correo electr&oacute;nico</label>
-                        <input type="email" class="form-control" id="email" placeholder="yo@email.com">
-                    </div>
-                    <button type="button" class="btn btn-default" id="open-wizard">Reservar!</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="pad">
-        <div class="line1">
-            <div class="wrapper line2">
-                <div class="col1">
-                    <h2>
-                        <img src="images/title_marker1.jpg" alt="">Numero uno en deportes</h2>
-                    <p class="pad_bot1" style="text-align: justify;">Somos los numero uno en deportes extremos, te ofrecemos canopi, parapente, balsaje y paracaidismo, todos realizados con el maximo profesionaliso y calidad de la Republica Ddominicana.</p>
-                </div>
-                <div class="col1 pad_left1">
-                    <h2>
-                        <img src="images/title_marker2.jpg" alt="">Elige el alojamiento deseado</h2>
-                    <p class="pad_bot1" style="text-align: justify;">Te damos la portunidad de disfrutas de varios tipos de alojamiento, contamos con hoteles , cabanas y carpas de la mejor calidad de toda la provincia de Santo Domingo.</p>
-                </div>
-                <div class="col1 pad_left1">
-                    <h2>
-                        <img src="images/title_marker3.jpg" alt="">Comida</h2>
-                    <p class="pad_bot1" style="text-align: justify;">Tenemos un menu muy variado comidas rápidas, almuerzos vallunos, almuerzos vegetarianos.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="wizard" data-title="Reservacion">
-    <div class="wizard-card" data-cardname="start">
-        <h3>Inicio</h3>
-        <p>Complete los siguientes datos para terminar su reservacion.</p>
-    </div>
-    <div class="wizard-card" data-cardname="codigoDeReservacion">
-        <h3>Codigo de reservacion</h3>
-        <div class="wizard-input-section">
-            <div class="form-group">
-                <div class="col-sm-6">
-                    <label for="codigoDeReservacion">Codigo de reservacion</label>
-                    <input type="text" name="codigoDeReservacion" value="" class="form-control" />
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="wizard-card" data-cardname="reservacionDeGrupo">
-        <h3>Reservacion de grupo</h3>
-        <div class="wizard-input-section">
-            <div class="form-group">
-                <div class="col-sm-6">
-                    <label>Introduzca la cantidad de personas para los que desea reservar</label>
-                    <input type="text" class="form-control" value="" name="cantidadDePersonas"/>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="wizard-card" data-cardname="alojamiento">
-        <h3>Alojamiento</h3>
-        <div class="wizard-input-section">
-            <div class="form-group">
-                <div class="col-sm-6">
-                    <label for="alojamiento">Seleccione donde se alojara</label>
-                    <select>
-                        <option>Cabañas</option>
-                        <option>Hotel</option>
-                        <option>Otro</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="wizard-card" data-cardname="comida">
-        <h3>Comidas</h3>
-        <div class="wizard-input-section">
-            <div class="form-group">
-                <div class="col-sm-6">
-                    <label for="comida">Que va a comer?</label>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="comida" id="comida" value="comida1">
-                            Comida 1
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="comida" id="comida" value="comida2">
-                            Comida 2
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="comida" id="comida" value="comida3">
-                            Comida 3
-                        </label>
+            <div class="pad">
+                <div class="line1">
+                    <div class="wrapper line2">
+                        <div class="col1">
+                            <h2>
+                                <img src="images/title_marker1.jpg" alt="">Numero uno en deportes</h2>
+                            <p class="pad_bot1" style="text-align: justify;">Somos los numero uno en deportes extremos, te ofrecemos canopi, parapente, balsaje y paracaidismo, todos realizados con el maximo profesionaliso y calidad de la Republica Ddominicana.</p>
+                        </div>
+                        <div class="col1 pad_left1">
+                            <h2>
+                                <img src="images/title_marker2.jpg" alt="">Elige el alojamiento deseado</h2>
+                            <p class="pad_bot1" style="text-align: justify;">Te damos la portunidad de disfrutas de varios tipos de alojamiento, contamos con hoteles , cabanas y carpas de la mejor calidad de toda la provincia de Santo Domingo.</p>
+                        </div>
+                        <div class="col1 pad_left1">
+                            <h2>
+                                <img src="images/title_marker3.jpg" alt="">Comida</h2>
+                            <p class="pad_bot1" style="text-align: justify;">Tenemos un menu muy variado comidas rápidas, almuerzos vallunos, almuerzos vegetarianos.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="wizard-card" data-cardname="deportes">
-        <h3>Deportes</h3>
-        <div class="wizard-input-section">
-            <div class="form-group">
-                <div class="col-sm-6">
-                    <label for="comida">Seleccione los deportes en los que desea participar</label>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="comida" id="comida" value="deporte1">
-                            Deporte 1
-                        </label>
+        <div>
+    <div id="wizard" data-title="Reservacion">
+        <div class="wizard-card" data-cardname="start">
+            <h3>Inicio</h3>
+            <p>Complete los siguientes datos para terminar su reservacion.</p>
+        </div>
+        <div class="wizard-card" data-cardname="codigoDeReservacion">
+            <h3>Codigo de reservacion</h3>
+            <div class="wizard-input-section">
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label for="codigoDeReservacion">Codigo de reservacion</label>
+                        <input type="text" name="codigoDeReservacion" value="" class="form-control" ng-model="reservacion.cliente.codigoDeReservacion" />
                     </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="comida" id="comida" value="deporte2">
-                            Deporte 2
-                        </label>
+                </div>
+            </div>
+        </div>
+        <div class="wizard-card" data-cardname="reservacionDeGrupo">
+            <h3>Reservacion de grupo</h3>
+            <div class="wizard-input-section">
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label>Introduzca la cantidad de personas para los que desea reservar</label>
+                        <input type="text" class="form-control" value="" name="cantidadDePersonas" ng-model="reservacion.cantidadDePersonas" />
                     </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="comida" id="comida" value="deporte3">
-                            Deporte 3
-                        </label>
+                </div>
+            </div>
+        </div>
+        <div class="wizard-card" data-cardname="alojamiento">
+            <h3>Alojamiento</h3>
+            <div class="wizard-input-section">
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label for="alojamiento">Seleccione donde se alojara</label>
+                        <select ng-model="reservacion.cliente.alojamientoId" ng-options="a.id as a.titulo for a in alojamientos">
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wizard-card" data-cardname="comida">
+            <h3>Comidas</h3>
+            <div class="wizard-input-section">
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label for="comida">Que va a comer?</label>
+
+                        <div ng-repeat="comida in comidas">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="comida" id="Radio3" ng-model="reservacion.cliente.comidaId" value="comida.id">
+                                    {{comida.titulo}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wizard-card" data-cardname="deportes">
+            <h3>Deportes</h3>
+            <div class="wizard-input-section">
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label for="deporte">Seleccione los deportes en los que desea participar</label>
+                        <div ng-repeat="deporte in deportes">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="deporte" id="Radio4" ng-model="reservacion.cliente.deporteId" value="deporte.id">
+                                    {{deporte.titulo}}
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -173,10 +155,16 @@
     </div>
 </div>
 
+
+        {{reservacion | json}}
+    </div>
+</div>
 @section Scripts{
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/app")
     @Scripts.Render("~/bundles/wizard")
-    <script type="text/javascript">
+<script type="text/javascript">
 
         $(document).ready(function () {
             var options = {
@@ -190,34 +178,33 @@
             });
 
             wizard.on('decrementCard', function () {
+                $('.btn .wizard-next').removeClass('btn-danger');
                 var activeCard = wizard.getActiveCard();
                 if (activeCard.name === 'codigoDeReservacion') {
-                    wizard.changeNextButton('No tengo codigo de reservacion', 'btn btn-danger');
-                } else if (activeCard.name === 'reservacionDeGrupo') {
-                    wizard.changeNextButton('No reservar para grupo', 'btn btn-danger');
-                } else {
-                    wizard.changeNextButton('Next', 'btn btn-primary');
+                    wizard.changeNextButton('No tengo codigo de reservacion', 'btn-danger');
+                }
+                if (activeCard.name === 'reservacionDeGrupo') {
+                    wizard.changeNextButton('No reservar para grupo', 'btn-danger');
                 }
             });
 
             wizard.on('incrementCard', function () {
+                $('.btn .wizard-next').removeClass('btn-danger');
                 var activeCard = wizard.getActiveCard();
                 if (activeCard.name === 'codigoDeReservacion') {
-                    wizard.changeNextButton('No tengo codigo de reservacion', 'btn btn-danger');
-                } else if (activeCard.name === 'reservacionDeGrupo') {
-                    wizard.changeNextButton('No reservar para grupo', 'btn btn-danger');
-                } else {
-                    wizard.changeNextButton('Next', 'btn btn-primary');
+                    wizard.changeNextButton('No tengo codigo de reservacion', 'btn-danger');
+                }
+                if (activeCard.name === 'reservacionDeGrupo') {
+                    wizard.changeNextButton('No reservar para grupo', 'btn-danger');
                 }
             });
 
             $('#open-wizard').click(function (e) {
                 e.preventDefault();
+                wizard.reset();
                 wizard.show();
             });
         });
 
     </script>
-    @Scripts.Render("~/bundles/angular")
-    @Scripts.Render("~/bundles/app")
 }

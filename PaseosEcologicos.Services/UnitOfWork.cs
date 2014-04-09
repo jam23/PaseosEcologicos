@@ -12,22 +12,22 @@ namespace PaseosEcologicos.Services
         private readonly DbContext context;
      
         // list of repository fields
-        //private Repository<Evaluaciones> evaluaciones;
+        private Repository<Reservaciones> reservaciones;
 
 
         // list of repository fields properties
-        //public Repository<Evaluaciones> Evaluaciones
-        //{
-        //    get
-        //    {
-        //        if (evaluaciones == null)
-        //        {
-        //            evaluaciones = new Repository<Evaluaciones>(context);
-        //        }
+        public Repository<Reservaciones> Reservaciones
+        {
+            get
+            {
+                if (reservaciones == null)
+                {
+                    reservaciones = new Repository<Reservaciones>(context);
+                }
 
-        //        return evaluaciones;
-        //    }
-        //}
+                return reservaciones;
+            }
+        }
         
         
         public UnitOfWork(DbContext _context)
@@ -37,7 +37,7 @@ namespace PaseosEcologicos.Services
 
         public UnitOfWork()
         {
-            context = new DbContext("");
+            context = new DbContext("PaseosEcologicosEntities");
         }
 
         public void Commit()
