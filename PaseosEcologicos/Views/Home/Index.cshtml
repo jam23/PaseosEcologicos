@@ -76,94 +76,94 @@
             </div>
         </div>
         <div>
-    <div id="wizard" data-title="Reservacion">
-        <div class="wizard-card" data-cardname="start">
-            <h3>Inicio</h3>
-            <p>Complete los siguientes datos para terminar su reservacion.</p>
-        </div>
-        <div class="wizard-card" data-cardname="codigoDeReservacion">
-            <h3>Codigo de reservacion</h3>
-            <div class="wizard-input-section">
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label for="codigoDeReservacion">Codigo de reservacion</label>
-                        <input type="text" name="codigoDeReservacion" value="" class="form-control" ng-model="reservacion.cliente.codigoDeReservacion" />
-                    </div>
+            <div id="wizard" data-title="Reservacion">
+                <div class="wizard-card" data-cardname="start">
+                    <h3>Inicio</h3>
+                    <p>Complete los siguientes datos para terminar su reservacion.</p>
                 </div>
-            </div>
-        </div>
-        <div class="wizard-card" data-cardname="reservacionDeGrupo">
-            <h3>Reservacion de grupo</h3>
-            <div class="wizard-input-section">
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label>Introduzca la cantidad de personas para los que desea reservar</label>
-                        <input type="text" class="form-control" value="" name="cantidadDePersonas" ng-model="reservacion.cantidadDePersonas" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="wizard-card" data-cardname="alojamiento">
-            <h3>Alojamiento</h3>
-            <div class="wizard-input-section">
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label for="alojamiento">Seleccione donde se alojara</label>
-                        <select ng-model="reservacion.cliente.alojamientoId" ng-options="a.id as a.titulo for a in alojamientos">
-                            <option value="">Seleccione un tipo de alojamiento</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="wizard-card" data-cardname="comida">
-            <h3>Comidas</h3>
-            <div class="wizard-input-section">
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label for="comida">Que va a comer?</label>
-                        <div ng-repeat="comida in comidas">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="comida" ng-model="reservacion.cliente.comidaId" ng-value="comida.id">
-                                    {{comida.titulo}}
-                                </label>
+                <div class="wizard-card" data-cardname="codigoDeReservacion">
+                    <h3>Codigo de reservacion</h3>
+                    <div class="wizard-input-section">
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <label for="codigoDeReservacion">Codigo de reservacion</label>
+                                <input type="text" name="codigoDeReservacion" value="" class="form-control" ng-model="reservacion.cliente.codigoDeReservacion" />
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="wizard-card" data-cardname="deportes">
-            <h3>Deportes</h3>
-            <div class="wizard-input-section">
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label for="deporte">Seleccione los deportes en los que desea participar</label>
-                        <div ng-repeat="deporte in deportes">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="deporte" ng-model="reservacion.cliente.deporteId" ng-value="deporte.id">
-                                    {{deporte.titulo}}
-                                </label>
+                <div class="wizard-card" data-cardname="reservacionDeGrupo">
+                    <h3>Reservacion de grupo</h3>
+                    <div class="wizard-input-section">
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <label>Introduzca la cantidad de personas para los que desea reservar</label>
+                                <input type="text" class="form-control" value="" name="cantidadDePersonas" ng-model="reservacion.cantidadDePersonas" />
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="wizard-card" data-cardname="alojamiento">
+                    <h3>Alojamiento</h3>
+                    <div class="wizard-input-section">
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <label for="alojamiento">Seleccione donde se alojara</label>
+                                <select ng-model="reservacion.cliente.alojamientoId" ng-options="a.id as a.titulo for a in alojamientos">
+                                    <option value="">Seleccione un tipo de alojamiento</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wizard-card" data-cardname="comida">
+                    <h3>Comidas</h3>
+                    <div class="wizard-input-section">
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <label for="comida">Que va a comer?</label>
+                                <div ng-repeat="comida in comidas">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="comida" ng-model="reservacion.cliente.comidaId" ng-value="comida.id">
+                                            {{comida.titulo}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wizard-card" data-cardname="deportes">
+                    <h3>Deportes</h3>
+                    <div class="wizard-input-section">
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <label for="deporte">Seleccione los deportes en los que desea participar</label>
+                                <div ng-repeat="deporte in deportes">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="deporte" ng-model="reservacion.cliente.deporteId" ng-value="deporte.id">
+                                            {{deporte.titulo}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wizard-card" data-cardname="finish">
+                    <h3>Final</h3>
+                    <p>Has llegado al final, revisa tu bandeja de entrada en tu correo electronico.</p>
+                    <p>Mostrar detalles </p>
+                    <p>{{reservacion | json}}</p>
+                    <p>
+                        <button type="button" class="btn btn-success" ng-click="finish()">finish</button>
+                    </p>
+                </div>
             </div>
         </div>
-        <div class="wizard-card" data-cardname="finish">
-            <h3>Deportes</h3>
-            <p>FIN</p>
-            <p>Mostrar detalles </p>
-            <p> {{reservacion | json}}</p>
-            <p>
-                <button type="button" class="btn btn-success" ng-click="finish()">finish</button>
-            </p>
-        </div>
-    </div>
-</div>
-        @*{{reservacion | json}}*@
+        {{reservacion | json}}
     </div>
 </div>
 @section Scripts{
@@ -171,13 +171,22 @@
     @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/app")
     @Scripts.Render("~/bundles/wizard")
-<script type="text/javascript">
+    <script type="text/javascript">
 
         $(document).ready(function () {
             var options = {
                 contentHeight: 400,
                 contentWidth: 700,
+                buttons: {
+                    nextText: 'Siguiente',
+                    backText: 'Atras',
+                    submitText: 'Terminar',
+                    cancelText: 'Cancelar'
+                }
             };
+
+            $.fn.wizard.logging = true;
+
             var wizard = $("#wizard").wizard(options);
 
             wizard.on('closed', function () {
@@ -204,6 +213,11 @@
                 if (activeCard.name === 'reservacionDeGrupo') {
                     wizard.changeNextButton('No reservar para grupo', 'btn-danger');
                 }
+            });
+
+            wizard.on('submit', function () {
+                wizard.submitSuccess();
+                wizard.close();
             });
 
             $('#open-wizard').click(function (e) {
