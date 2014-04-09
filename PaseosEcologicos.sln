@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Web
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaseosEcologicos", "PaseosEcologicos\PaseosEcologicos.csproj", "{4AF191EB-A1BE-461F-81F5-DA686D4F5483}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaseosEcologicos.Services", "PaseosEcologicos.Services\PaseosEcologicos.Services.csproj", "{D81EB922-493B-4130-8254-96A78A796C17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaseosEcologicos.Model", "PaseosEcologicos.Model\PaseosEcologicos.Model.csproj", "{C15F268B-DC8B-4811-B9A0-C7B77ABFDB48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{4AF191EB-A1BE-461F-81F5-DA686D4F5483}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AF191EB-A1BE-461F-81F5-DA686D4F5483}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AF191EB-A1BE-461F-81F5-DA686D4F5483}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D81EB922-493B-4130-8254-96A78A796C17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D81EB922-493B-4130-8254-96A78A796C17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D81EB922-493B-4130-8254-96A78A796C17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D81EB922-493B-4130-8254-96A78A796C17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C15F268B-DC8B-4811-B9A0-C7B77ABFDB48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C15F268B-DC8B-4811-B9A0-C7B77ABFDB48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C15F268B-DC8B-4811-B9A0-C7B77ABFDB48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C15F268B-DC8B-4811-B9A0-C7B77ABFDB48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

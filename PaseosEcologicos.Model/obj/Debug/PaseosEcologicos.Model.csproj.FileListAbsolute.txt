@@ -1,0 +1,5 @@
+C:\Users\t_felizl\Copy\ADelRosario\Projects\Paseos Ecologicos\PaseosEcologicos\PaseosEcologicos.Model\bin\Debug\PaseosEcologicos.Model.dll
+C:\Users\t_felizl\Copy\ADelRosario\Projects\Paseos Ecologicos\PaseosEcologicos\PaseosEcologicos.Model\bin\Debug\PaseosEcologicos.Model.pdb
+C:\Users\t_felizl\Copy\ADelRosario\Projects\Paseos Ecologicos\PaseosEcologicos\PaseosEcologicos.Model\obj\Debug\PaseosEcologicos.Model.csprojResolveAssemblyReference.cache
+C:\Users\t_felizl\Copy\ADelRosario\Projects\Paseos Ecologicos\PaseosEcologicos\PaseosEcologicos.Model\obj\Debug\PaseosEcologicos.Model.dll
+C:\Users\t_felizl\Copy\ADelRosario\Projects\Paseos Ecologicos\PaseosEcologicos\PaseosEcologicos.Model\obj\Debug\PaseosEcologicos.Model.pdb

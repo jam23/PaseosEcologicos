@@ -53,6 +53,26 @@ namespace PaseosEcologicos
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
+                "~/Content/bootstrap.min.css"
+                ));
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                "~/Scripts/bootstrap.min.js"
+                ));
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                "~/Scripts/angular.min.js",
+                "~/Scripts/angular-route.min.js",
+                "~/Scripts/angular-resource.min.js"
+                ));
+            bundles.Add(new ScriptBundle("~/bundles/app").Include(
+                "~/Scripts/application/app.js",
+                "~/Scripts/application/router.js",
+                "~/Scripts/application/*Provider.js",
+                "~/Scripts/application/*Controller.js"
+                ));
+
+            bundles.IgnoreList.Clear();
         }
     }
 }
