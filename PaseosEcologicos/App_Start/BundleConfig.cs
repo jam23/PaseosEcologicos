@@ -37,7 +37,8 @@ namespace PaseosEcologicos
                 "~/Scripts/jquery.jqtransform.js",
                 "~/Scripts/script.js",
                 "~/Scripts/kwicks-1.5.1.pack.js",
-                "~/Scripts/atooltip.jquery.js"
+                "~/Scripts/atooltip.jquery.js",
+                "~/Scripts/jquery.steps.min.js"
             ));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
@@ -70,6 +71,14 @@ namespace PaseosEcologicos
                 "~/Scripts/application/router.js",
                 "~/Scripts/application/*Provider.js",
                 "~/Scripts/application/*Controller.js"
+                ));
+
+            bundles.Add(new StyleBundle("~/Content/wizard").Include(
+                "~/Content/bootstrap-wizard.css"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/wizard").Include(
+                "~/Scripts/bootstrap-wizard.min.js"
                 ));
 
             bundles.IgnoreList.Clear();

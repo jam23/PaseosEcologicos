@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/bootstrap")
     @Styles.Render("~/Content/css")
+    @RenderSection("Content", required: false)
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body id="page1">
@@ -14,7 +16,7 @@
             <div class="main">
                 <!-- header -->
                 <header>
-                    <h1>@Html.ActionLink("your logo here", "Index", "Home")</h1>
+                    <h1>@Html.ActionLink("Paseos Ecologicos", "Index", "Home")</h1>
                 </header>
                 <div class="box">
                     <nav>
@@ -53,7 +55,6 @@
                 spacing: 0,
                 event: 'mouseover'
             });
-
         })
     </script>
     @RenderSection("scripts", required: false)
