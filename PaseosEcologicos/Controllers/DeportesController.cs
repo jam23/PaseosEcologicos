@@ -24,11 +24,11 @@ namespace PaseosEcologicos.Controllers
                 },
                 new Deporte{
                     Id = 2,
-                    Titulo = "Deporte 1"
+                    Titulo = "Deporte 2"
                 },
                 new Deporte{
                     Id = 3,
-                    Titulo = "Deporte 1"
+                    Titulo = "Deporte 3"
                 },
             };
 

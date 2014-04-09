@@ -110,6 +110,7 @@
                     <div class="col-sm-6">
                         <label for="alojamiento">Seleccione donde se alojara</label>
                         <select ng-model="reservacion.cliente.alojamientoId" ng-options="a.id as a.titulo for a in alojamientos">
+                            <option value="">Seleccione un tipo de alojamiento</option>
                         </select>
                     </div>
                 </div>
@@ -121,11 +122,10 @@
                 <div class="form-group">
                     <div class="col-sm-6">
                         <label for="comida">Que va a comer?</label>
-
                         <div ng-repeat="comida in comidas">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="comida" id="Radio3" ng-model="reservacion.cliente.comidaId" value="comida.id">
+                                    <input type="radio" name="comida" ng-model="reservacion.cliente.comidaId" ng-value="comida.id">
                                     {{comida.titulo}}
                                 </label>
                             </div>
@@ -143,7 +143,7 @@
                         <div ng-repeat="deporte in deportes">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="deporte" id="Radio4" ng-model="reservacion.cliente.deporteId" value="deporte.id">
+                                    <input type="radio" name="deporte" ng-model="reservacion.cliente.deporteId" ng-value="deporte.id">
                                     {{deporte.titulo}}
                                 </label>
                             </div>
@@ -152,11 +152,18 @@
                 </div>
             </div>
         </div>
+        <div class="wizard-card" data-cardname="finish">
+            <h3>Deportes</h3>
+            <p>FIN</p>
+            <p>Mostrar detalles </p>
+            <p> {{reservacion | json}}</p>
+            <p>
+                <button type="button" class="btn btn-success" ng-click="finish()">finish</button>
+            </p>
+        </div>
     </div>
 </div>
-
-
-        {{reservacion | json}}
+        @*{{reservacion | json}}*@
     </div>
 </div>
 @section Scripts{

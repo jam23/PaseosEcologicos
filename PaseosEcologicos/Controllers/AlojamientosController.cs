@@ -24,11 +24,11 @@ namespace PaseosEcologicos.Controllers
                 },
                 new Alojamiento{
                     Id = 2,
-                    Titulo = "Alojamiento 1"
+                    Titulo = "Alojamiento 2"
                 },
                 new Alojamiento{
                     Id = 3,
-                    Titulo = "Alojamiento 1"
+                    Titulo = "Alojamiento 3"
                 },
             };
 

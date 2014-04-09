@@ -24,11 +24,11 @@ namespace PaseosEcologicos.Controllers
                 },
                 new Comida{
                     Id = 2,
-                    Titulo = "Comida 1"
+                    Titulo = "Comida 2"
                 },
                 new Comida{
                     Id = 3,
-                    Titulo = "Comida 1"
+                    Titulo = "Comida 3"
                 },
             };
 
