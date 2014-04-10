@@ -22,11 +22,11 @@ h2 {font-size:21px;line-height:1.2em;color:#fff;letter-spacing:-1px}
 h2 img {margin-right:15px;float:left}
 p {padding-bottom:20px}
 /* ============================= header ====================== */
-header {height:116px}
+header {height:65px;}
 #logo {display:block;text-indent:-9999px;background:url(../images/logo.png) 0 0 no-repeat;width:240px;height:46px}
 .department {float:right;padding:37px 35px 0 0;color:#72716f;text-align:right}
 .department span {color:#fff}
-#menu {background:#fff;padding:10px 2px;height:39px;margin-bottom:10px}
+#menu {background:#fff;padding:10px 2px;height:39px;margin-bottom:10px; list-style:none;}
 #menu > li {border-right:1px solid #f2f2f2;float:left}
 #menu .last {border:0}
 #menu > li > a {display:block;padding:0 62px;font-size:16px;color:#12110f;text-decoration:none;}
