@@ -17,22 +17,22 @@ namespace PaseosEcologicos.Controllers
         // GET api/deportes
         public HttpResponseMessage Get()
         {
-            //var deportes = uow.Servicios.GetAll().Where(s => s.TipoId == 3);
+            var deportes = uow.Servicios.GetAll().Where(s => s.TipoId == 3);
 
-            var deportes = new List<Deporte>() { 
-                new Deporte{
-                    Id = 1,
-                    Titulo = "Sky diving"
-                },
-                new Deporte{
-                    Id = 2,
-                    Titulo = "Waterpool"
-                },
-                new Deporte{
-                    Id = 3,
-                    Titulo = "Voleyball"
-                }
-            };
+            //var deportes = new List<Deporte>() { 
+            //    new Deporte{
+            //        Id = 1,
+            //        Titulo = "Sky diving"
+            //    },
+            //    new Deporte{
+            //        Id = 2,
+            //        Titulo = "Waterpool"
+            //    },
+            //    new Deporte{
+            //        Id = 3,
+            //        Titulo = "Voleyball"
+            //    }
+            //};
 
             return Request.CreateResponse(HttpStatusCode.OK, deportes);
         }

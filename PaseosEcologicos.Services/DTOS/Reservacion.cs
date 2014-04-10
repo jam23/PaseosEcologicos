@@ -9,5 +9,6 @@ namespace PaseosEcologicos.Services.DTOS
     {
         public Cliente Cliente { get; set; }
         public int CantidadDePersonas { get; set; }
+        public int PaseoId { get; set; }
     }
 }

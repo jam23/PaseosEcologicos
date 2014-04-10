@@ -18,6 +18,8 @@ namespace PaseosEcologicos.Model
         public PaseosEcologicosEntities()
             : base("name=PaseosEcologicosEntities")
         {
+            Configuration.LazyLoadingEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -31,9 +31,30 @@ namespace PaseosEcologicos.Controllers
         {
             try
             {
+
                 var reservacion = factory.Create(_reservacion);
+                var cliente = factory.Create(_reservacion.Cliente);
+                
+                uow.Clientes.Add(cliente);
+                uow.Commit();
+                
+                reservacion.ClienteId = cliente.Id;
+                reservacion.Codigo_Verificacion = DateTime.Now.ToString("yyMMddss") + cliente.Id.ToString();
+                reservacion.PaseoId = _reservacion.PaseoId;
+                
+                var comida = factory.Create(cliente.Id, _reservacion.Cliente.ComidaId);
+                var alojamiento = factory.Create(cliente.Id, _reservacion.Cliente.AlojamientoId);
+                var deporte = factory.Create(cliente.Id, _reservacion.Cliente.DeporteId);
+
+                reservacion.Servicios_Consumidos.Add(comida);
+                reservacion.Servicios_Consumidos.Add(alojamiento);
+                reservacion.Servicios_Consumidos.Add(deporte);
+
                 uow.Reservaciones.Add(reservacion);
                 uow.Commit();
+
+                //Send email confirmation
+
                 return Request.CreateResponse(HttpStatusCode.OK, "Reservacion creada");
             }
             catch (Exception ex)

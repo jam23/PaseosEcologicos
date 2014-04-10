@@ -17,8 +17,8 @@ namespace PaseosEcologicos.Controllers
         // GET api/paseos
         public HttpResponseMessage Get()
         {
-            //var paseos = uow.Paseos.GetAll();
-            var paseos = new string[] { "Los palmares", "Los haitises", "El cruce"};
+            var paseos = uow.Paseos.GetAll();
+            //var paseos = new string[] { "Los palmares", "Los haitises", "El cruce"};
 
             return Request.CreateResponse(HttpStatusCode.OK, paseos);
         }
