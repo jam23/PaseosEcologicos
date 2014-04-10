@@ -12,6 +12,12 @@
             $window.OpenWizard();
         };
 
+
+        $scope.complete = function () {
+            ReservacionProvider.save($scope.reservacion);
+            $scope.reservacion = {};
+        };
+
         var encontrarServicio = function (servicios, id) {
             var servicio = _.find(servicios, function (servicio) {
                 if (id === servicio.id) {

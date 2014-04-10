@@ -185,7 +185,7 @@
                     <span>Alojamiento : <b>{{alojamientoSeleccionado(reservacion.cliente.alojamientoId)}}</b></span><br />
                     <span>Comida : <b>{{comidaSeleccionada(reservacion.cliente.comidaId)}}</b></span><br />
                     <span>Deporte : <b>{{deporteSeleccionado(reservacion.cliente.deporteId)}}</b></span><br />
-                    <input type="hidden" name="completed" value="0" ng-model="completed" />
+                    <button type="button" ng-click="complete()" class="completeButton" style="display:none; visibility:hidden;"></button>
                     @*<p>{{reservacion | json}}</p>*@
                     @*<p>
                         <button type="button" class="btn btn-success" ng-click="finish()">Estoy deacuerdo con el detalle de esta reservacion.</button>
@@ -248,12 +248,11 @@
             wizard.on('submit', function () {
                 wizard.submitSuccess();
                 wizard.close();
-                $('[name="completed"]').val('1');
+                $('.completeButton').click();
             });
 
             window.OpenWizard = function () {
                 wizard.reset();
-                $('[name="completed"]').val('0');
                 wizard.show();
             };
         });

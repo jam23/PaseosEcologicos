@@ -16,7 +16,33 @@
             <div class="main">
                 <!-- header -->
                 <header>
-                    <h1 id="logo">@Html.ActionLink("Paseos Ecologicos", "Index", "Home")</h1>
+                               <div class="float-left">
+                   @* <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")*@
+                    <div class="logo">
+                        <span class="P">Paseos</span>
+                        <span class="E">Ecologicos</span>
+                    </div>    
+                    @*</p>*@
+                </div>
+                <style>
+               .logo {
+                   position: relative;
+
+               }
+               .logo .P, .logo .E {
+                   float: left;
+                   font-size: 35px;
+
+               }
+               .logo .P {
+                    font-family: fantasy;
+                    color: rgba(0, 173, 49, 0.44);
+               }
+                .logo .E {
+                color: rgba(9, 117, 0, 0.57);
+                }
+                </style>
+                    @*<h1 id="logo">@Html.ActionLink("Paseos Ecologicos", "Index", "Home")</h1>*@
                 </header>
                 <div class="box">
                     <nav>
