@@ -32,8 +32,13 @@ namespace PaseosEcologicos.Controllers
             try
             {
                 var reservacion = factory.Create(_reservacion);
+                var cliente = factory.Create(_reservacion.Cliente);
+                uow.Clientes.Add(cliente);
+                uow.Commit();
+                reservacion.ClienteId = cliente.Id;
                 uow.Reservaciones.Add(reservacion);
                 uow.Commit();
+
                 return Request.CreateResponse(HttpStatusCode.OK, "Reservacion creada");
             }
             catch (Exception ex)

@@ -25,7 +25,6 @@ namespace PaseosEcologicos
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/site.css",
-                "~/Content/reset.css",
                 "~/Content/layout.css",
                 "~/Content/style.css"
             ));

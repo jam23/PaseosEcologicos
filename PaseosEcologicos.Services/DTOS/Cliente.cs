@@ -14,6 +14,7 @@ namespace PaseosEcologicos.Services.DTOS
         public int AlojamientoId { get; set; }
         public int ComidaId { get; set; }
         public int DeporteId { get; set; }
+        public int PaseoId { get; set; }
         public string CodigoDeReservacion { get; set; }
     }
 }
