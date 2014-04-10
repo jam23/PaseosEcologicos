@@ -616,6 +616,7 @@
     <Content Include="Scripts\modernizr-2.7.2.js" />
     <Content Include="Scripts\PIE.htc" />
     <Content Include="Scripts\PIE.php" />
+    <Content Include="Scripts\prettify.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\underscore.js" />
     <Content Include="Scripts\underscore.min.js" />

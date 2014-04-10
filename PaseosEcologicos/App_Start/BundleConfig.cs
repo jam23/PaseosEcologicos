@@ -80,6 +80,7 @@ namespace PaseosEcologicos
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/wizard").Include(
+                "~/Scripts/prettify.js",
                 "~/Scripts/bootstrap-wizard.min.js"
                 ));
 
