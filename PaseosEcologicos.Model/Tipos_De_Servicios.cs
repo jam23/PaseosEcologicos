@@ -4,14 +4,14 @@
 //
 //    Manual changes to this file may cause unexpected behavior in your application.
 //    Manual changes to this file will be overwritten if the code is regenerated.
-// </auto-generated>
+// </auto-generated> 
 //------------------------------------------------------------------------------
 
 namespace PaseosEcologicos.Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class Tipos_De_Servicios
     {
         public Tipos_De_Servicios()
@@ -19,8 +19,12 @@ namespace PaseosEcologicos.Model
             this.Servicios = new HashSet<Servicios>();
         }
     
+        
         public int Id { get; set; }
+        [Required(ErrorMessage="El campo Titulo es obligatorio")]
         public string Titulo { get; set; }
+        [Required(ErrorMessage = "El campo Descripción es obligatorio")]
+        [DataType(DataType.MultilineText)]
         public string Descripcion { get; set; }
     
         public virtual ICollection<Servicios> Servicios { get; set; }
