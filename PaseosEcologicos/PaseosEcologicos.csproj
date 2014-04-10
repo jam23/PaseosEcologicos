@@ -204,10 +204,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\PaseosEcologicos.mdf" />
-    <Content Include="App_Data\PaseosEcologicos_log.ldf">
-      <DependentUpon>PaseosEcologicos.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap-wizard.css" />
@@ -620,7 +616,6 @@
     <Content Include="Scripts\modernizr-2.7.2.js" />
     <Content Include="Scripts\PIE.htc" />
     <Content Include="Scripts\PIE.php" />
-    <Content Include="Scripts\prettify.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\underscore.js" />
     <Content Include="Scripts\underscore.min.js" />
@@ -665,7 +660,9 @@
     <Content Include="Scripts\version.json" />
     <Content Include="Scripts\underscore.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

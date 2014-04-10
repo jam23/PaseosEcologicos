@@ -25,6 +25,7 @@ namespace PaseosEcologicos
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/site.css",
+                "~/Content/reset.css",
                 "~/Content/layout.css",
                 "~/Content/style.css"
             ));
@@ -79,7 +80,6 @@ namespace PaseosEcologicos
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/wizard").Include(
-                "~/Scripts/prettify.js",
                 "~/Scripts/bootstrap-wizard.min.js"
                 ));
 

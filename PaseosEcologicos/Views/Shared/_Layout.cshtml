@@ -1,13 +1,13 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>@ViewBag.Title - Paseos Ecologicos</title>
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
     <meta charset="utf-8">
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
     @Styles.Render("~/Content/bootstrap")
-    @RenderSection("Content", required: false)
     @Styles.Render("~/Content/css")
+    @RenderSection("Content", required: false)
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body id="page1">
@@ -16,14 +16,14 @@
             <div class="main">
                 <!-- header -->
                 <header>
-                    <h1 id="logo">@Html.ActionLink("Paseos Ecologicos", "Index", "Home")</h1>
+                    <h1>@Html.ActionLink("Paseos Ecologicos", "Index", "Home")</h1>
                 </header>
                 <div class="box">
                     <nav>
                         <ul id="menu">
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Sobre nosostros", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contactos", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                         </ul>
                     </nav>
                     <!-- header end -->
@@ -37,14 +37,14 @@
             </div>
         </div>
     </div>
-    <!-- footer -->
-    <footer>
-        <div class="main">
-            <p>&copy; @DateTime.Now.Year - Paseos Ecologicos | Por: Leomaris Reyes, Juan Acosta y Anthony Del Rosario.</p>
+    <div class="main">
+        <!-- footer -->
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
             <!-- {%FOOTER_LINK} -->
-        </div>
-    </footer>
-    <!-- footer end -->
+        </footer>
+        <!-- footer end -->
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/site")
     <script type="text/javascript"> Cufon.now(); </script>

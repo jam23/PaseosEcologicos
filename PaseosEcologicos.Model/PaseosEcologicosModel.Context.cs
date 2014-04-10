@@ -24,7 +24,7 @@ namespace PaseosEcologicos.Model
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+        
         public DbSet<Clientes> Clientes { get; set; }
         public DbSet<Implementos> Implementos { get; set; }
         public DbSet<Paseos> Paseos { get; set; }

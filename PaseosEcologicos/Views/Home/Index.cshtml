@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Bienvenidos, complete su reservacion aqui!";
+    ViewBag.Title = "Home Page";
 }
 
 @section Content{
@@ -42,13 +42,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="telefono">Telefono</label>
-                                <input type="text" class="form-control" id="telefono" placeholder="(809) 288-5566" required ng-model="reservacion.cliente.telefono">
+                                <input type="text" class="form-control" id="telefono" placeholder="(809) 288-5566"  required ng-model="reservacion.cliente.telefono">
                             </div>
                             <div class="form-group">
                                 <label for="email">Correo electr&oacute;nico</label>
                                 <input type="email" class="form-control" id="email" placeholder="yo@email.com" required ng-model="reservacion.cliente.email">
                             </div>
-                            <button type="submit" class="btn btn-warning btn-lg" id="open-wizard">Reservar!</button>
+                            <button type="submit" class="btn btn-default" id="open-wizard">Reservar!</button>
                         </form>
                     </div>
                 </div>
@@ -79,19 +79,21 @@
             <div id="wizard" data-title="Reservacion">
                 <div class="wizard-card" data-cardname="start">
                     <h3>Inicio</h3>
+<<<<<<< HEAD
                     <div class="col-sm-8">
                         <p>Complete los siguientes datos para terminar su reservacion.</p>
                     </div>
+=======
+                    <p>Complete los siguientes datos para terminar su reservacion.</p>
+>>>>>>> bf46f73aacb49f15d2c77dd2ad514cde178129b9
                 </div>
                 <div class="wizard-card" data-cardname="codigoDeReservacion">
                     <h3>Codigo de reservacion</h3>
                     <div class="wizard-input-section">
-                        <div class="col-sm-8">
-                            <div class="form-group">
+                        <div class="form-group">
+                            <div class="col-sm-6">
                                 <label for="codigoDeReservacion">Codigo de reservacion</label>
                                 <input type="text" name="codigoDeReservacion" value="" class="form-control" ng-model="reservacion.cliente.codigoDeReservacion" />
-                                <br />
-                                <button type="button" class="btn btn-default" name="validarCodigoDeReservacion">Validar codigo</button>
                             </div>
                         </div>
                     </div>
@@ -100,7 +102,7 @@
                     <h3>Reservacion de grupo</h3>
                     <div class="wizard-input-section">
                         <div class="form-group">
-                            <div class="col-sm-8">
+                            <div class="col-sm-6">
                                 <label>Introduzca la cantidad de personas para los que desea reservar</label>
                                 <input type="text" class="form-control" value="" name="cantidadDePersonas" ng-model="reservacion.cantidadDePersonas" />
                             </div>
@@ -111,9 +113,9 @@
                     <h3>Paseos</h3>
                     <div class="wizard-input-section">
                         <div class="form-group">
-                            <div class="col-sm-8">
+                            <div class="col-sm-6">
                                 <label>Seleccione el paseo para el cual desea hacer la reservacion</label>
-                                <select ng-model="reservacion.paseoId" ng-options="p.id as p.titulo for p in paseos">
+                                <select ng-model="reservacion.paseoId" ng-options="p.id as p.titulo for p in paseos">\
                                     <option value="">Seleccione el paseo</option>
                                 </select>
                             </div>
@@ -124,7 +126,7 @@
                     <h3>Alojamiento</h3>
                     <div class="wizard-input-section">
                         <div class="form-group">
-                            <div class="col-sm-8">
+                            <div class="col-sm-6">
                                 <label for="alojamiento">Seleccione donde se alojara</label>
                                 <select ng-model="reservacion.cliente.alojamientoId" ng-options="a.id as a.titulo for a in alojamientos">
                                     <option value="">Seleccione un tipo de alojamiento</option>
@@ -137,7 +139,7 @@
                     <h3>Comidas</h3>
                     <div class="wizard-input-section">
                         <div class="form-group">
-                            <div class="col-sm-8">
+                            <div class="col-sm-6">
                                 <label for="comida">Que va a comer?</label>
                                 <div ng-repeat="comida in comidas">
                                     <div class="radio">
@@ -155,7 +157,7 @@
                     <h3>Deportes</h3>
                     <div class="wizard-input-section">
                         <div class="form-group">
-                            <div class="col-sm-8">
+                            <div class="col-sm-6">
                                 <label for="deporte">Seleccione los deportes en los que desea participar</label>
                                 <div ng-repeat="deporte in deportes">
                                     <div class="radio">
@@ -172,6 +174,7 @@
                 <div class="wizard-card" data-cardname="finish">
                     <h3>Final</h3>
                     <p>Has llegado al final, revisa tu bandeja de entrada en tu correo electronico.</p>
+<<<<<<< HEAD
                     <p><b>Detalles de su reservacion</b></p>
                     <span>Nombre : <b>{{reservacion.cliente.nombre}} {{reservacion.cliente.apellido}}</b></span><br />
                     <span>Telefono: {{reservacion.cliente.telefono}}, Correo electronico: {{reservacion.cliente.email}}</span>
@@ -190,6 +193,13 @@
                     @*<p>
                         <button type="button" class="btn btn-success" ng-click="finish()">Estoy deacuerdo con el detalle de esta reservacion.</button>
                     </p>*@
+=======
+                    <p>Mostrar detalles </p>
+                    <p>{{reservacion | json}}</p>
+                    <p>
+                        <button type="button" class="btn btn-success" ng-click="finish()">finish</button>
+                    </p>
+>>>>>>> bf46f73aacb49f15d2c77dd2ad514cde178129b9
                 </div>
             </div>
         </div>
@@ -251,11 +261,12 @@
                 $('[name="completed"]').val('1');
             });
 
-            window.OpenWizard = function () {
+            window.OpenWizard = function() { 
                 wizard.reset();
                 $('[name="completed"]').val('0');
                 wizard.show();
             };
         });
+
     </script>
 }
