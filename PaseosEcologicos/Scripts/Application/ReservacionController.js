@@ -11,13 +11,31 @@
         $scope.registro = function () {
             $window.OpenWizard();
         };
-        $scope.finish = function () {
-            $window.jQuery('#wizard').hide();
-            ReservacionProvider.save($scope.reservacion);
-            $scope.reservacion = {};
+
+        var encontrarServicio = function (servicios, id) {
+            var servicio = _.find(servicios, function (servicio) {
+                if (id === servicio.id) {
+                    return servicio;
+                }
+            });
+
+            if (servicio) {
+                return servicio.titulo;
+            }
+
+            return "";
+        };
+        $scope.alojamientoSeleccionado = function (id) {
+            return encontrarServicio($scope.alojamientos, id);
         };
 
-        //console.log($scope.alojamientos);
-        //console.log($scope.comidas);
-        //console.log($scope.deportes);
+        $scope.comidaSeleccionada = function (id) {
+            return encontrarServicio($scope.comidas, id);
+        };
+        $scope.deporteSeleccionado = function (id) {
+            return encontrarServicio($scope.deportes, id);
+        };
+        $scope.paseoSeleccionado = function (id) {
+            return encontrarServicio($scope.paseos, id);
+        };
     }]);

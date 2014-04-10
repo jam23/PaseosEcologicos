@@ -78,8 +78,8 @@
         <div>
             <div id="wizard" data-title="Reservacion">
                 <div class="wizard-card" data-cardname="start">
+                    <h3>Inicio</h3>
                     <div class="col-sm-8">
-                        <h3>Inicio</h3>
                         <p>Complete los siguientes datos para terminar su reservacion.</p>
                     </div>
                 </div>
@@ -171,18 +171,29 @@
                 </div>
                 <div class="wizard-card" data-cardname="finish">
                     <h3>Final</h3>
-                    <div class="col-sm-8">
-                        <p>Has llegado al final, revisa tu bandeja de entrada en tu correo electronico.</p>
-                        <p>Mostrar detalles </p>
-                        <p>{{reservacion | json}}</p>
-                        <p>
-                            <button type="button" class="btn btn-success" ng-click="finish()">finish</button>
-                        </p>
-                    </div>
+                    <p>Has llegado al final, revisa tu bandeja de entrada en tu correo electronico.</p>
+                    <p><b>Detalles de su reservacion</b></p>
+                    <span>Nombre : <b>{{reservacion.cliente.nombre}} {{reservacion.cliente.apellido}}</b></span><br />
+                    <span>Telefono: {{reservacion.cliente.telefono}}, Correo electronico: {{reservacion.cliente.email}}</span>
+                    <br />
+                    <span ng-show="reservacion.codigoDeReservacion != ''">Codigo de reservacion: <b>{{reservacion.codigoDeReservacion}}</b>
+                    </span>
+                    <span ng-show="reservacion.cantidadDePersonas > 0">Reservacion para <b>{{reservacion.cantidadDePersonas}}</b> personas
+                    </span>
+                    <br />
+                    <span>Servicios que va a consumir en el paseo : <b>{{paseoSeleccionado(reservacion.cliente.paseoId)}}</b></span><br />
+                    <span>Alojamiento : <b>{{alojamientoSeleccionado(reservacion.cliente.alojamientoId)}}</b></span><br />
+                    <span>Comida : <b>{{comidaSeleccionada(reservacion.cliente.comidaId)}}</b></span><br />
+                    <span>Deporte : <b>{{deporteSeleccionado(reservacion.cliente.deporteId)}}</b></span><br />
+                    <input type="hidden" name="completed" value="0" ng-model="completed" />
+                    @*<p>{{reservacion | json}}</p>*@
+                    @*<p>
+                        <button type="button" class="btn btn-success" ng-click="finish()">Estoy deacuerdo con el detalle de esta reservacion.</button>
+                    </p>*@
                 </div>
             </div>
         </div>
-        {{reservacion | json}}
+        @*{{reservacion | json}}*@
     </div>
 </div>
 @section Scripts{
@@ -194,7 +205,7 @@
 
         $(document).ready(function () {
             var options = {
-                contentHeight: 420,
+                contentHeight: 400,
                 contentWidth: 700,
                 buttons: {
                     nextText: 'Siguiente',
@@ -216,10 +227,10 @@
                 $('.btn .wizard-next').removeClass('btn-danger');
                 var activeCard = wizard.getActiveCard();
                 if (activeCard.name === 'codigoDeReservacion') {
-                    wizard.changeNextButton('No tengo codigo de reservacion', 'btn-danger');
+                    wizard.changeNextButton('No tengo codigo de reservacion', '');
                 }
                 if (activeCard.name === 'reservacionDeGrupo') {
-                    wizard.changeNextButton('No reservar para grupo', 'btn-danger');
+                    wizard.changeNextButton('No reservar para grupo', '');
                 }
             });
 
@@ -227,20 +238,22 @@
                 $('.btn .wizard-next').removeClass('btn-danger');
                 var activeCard = wizard.getActiveCard();
                 if (activeCard.name === 'codigoDeReservacion') {
-                    wizard.changeNextButton('No tengo codigo de reservacion', 'btn-danger');
+                    wizard.changeNextButton('No tengo codigo de reservacion', '');
                 }
                 if (activeCard.name === 'reservacionDeGrupo') {
-                    wizard.changeNextButton('No reservar para grupo', 'btn-danger');
+                    wizard.changeNextButton('No reservar para grupo', '');
                 }
             });
 
             wizard.on('submit', function () {
                 wizard.submitSuccess();
                 wizard.close();
+                $('[name="completed"]').val('1');
             });
 
             window.OpenWizard = function () {
                 wizard.reset();
+                $('[name="completed"]').val('0');
                 wizard.show();
             };
         });

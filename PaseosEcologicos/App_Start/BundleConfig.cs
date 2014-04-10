@@ -58,7 +58,8 @@ namespace PaseosEcologicos
                 "~/Content/bootstrap.min.css"
                 ));
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/Scripts/bootstrap.min.js"
+                "~/Scripts/bootstrap.min.js",
+                "~/Scripts/underscore.min.js"
                 ));
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/angular.min.js",

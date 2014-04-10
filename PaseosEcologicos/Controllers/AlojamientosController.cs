@@ -17,7 +17,21 @@ namespace PaseosEcologicos.Controllers
         // GET api/alojamientos
         public HttpResponseMessage Get()
         {
-            var alojamientos = uow.Servicios.GetAll().Where(s => s.TipoId == 1);
+            //var alojamientos = uow.Servicios.GetAll().Where(s => s.TipoId == 1);
+            var alojamientos = new List<Alojamiento>() { 
+                new Alojamiento{
+                    Id = 1,
+                    Titulo = "Cabaña"
+                },
+                new Alojamiento{
+                    Id = 2,
+                    Titulo = "Playa"
+                },
+                new Alojamiento{
+                    Id = 3,
+                    Titulo = "Hotel"
+                }
+            };
 
             return Request.CreateResponse(HttpStatusCode.OK, alojamientos);
         }

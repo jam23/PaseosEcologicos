@@ -17,7 +17,21 @@ namespace PaseosEcologicos.Controllers
         // GET api/comidas
         public HttpResponseMessage Get()
         {
-            var comidas = uow.Servicios.GetAll().Where(s => s.TipoId == 2);
+            //var comidas = uow.Servicios.GetAll().Where(s => s.TipoId == 2);
+            var comidas = new List<Comida>() { 
+                new Comida{
+                    Id = 1,
+                    Titulo = "Arroz con pollo"
+                },
+                new Comida{
+                    Id = 2,
+                    Titulo = "Pizza"
+                },
+                new Comida{
+                    Id = 3,
+                    Titulo = "Hot dog"
+                }
+            };
 
             return Request.CreateResponse(HttpStatusCode.OK, comidas);
         }
