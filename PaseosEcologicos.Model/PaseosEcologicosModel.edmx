@@ -1,0 +1,545 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PaseosEcologicosModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="PaseosEcologicosModelStoreContainer">
+          <EntitySet Name="Clientes" EntityType="PaseosEcologicosModel.Store.Clientes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Implementos" EntityType="PaseosEcologicosModel.Store.Implementos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Paseos" EntityType="PaseosEcologicosModel.Store.Paseos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Reservaciones" EntityType="PaseosEcologicosModel.Store.Reservaciones" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Servicios" EntityType="PaseosEcologicosModel.Store.Servicios" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Servicios_Consumidos" EntityType="PaseosEcologicosModel.Store.Servicios_Consumidos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tipos_De_Servicios" EntityType="PaseosEcologicosModel.Store.Tipos_De_Servicios" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Clientes_Clientes_AfiliadorId" Association="PaseosEcologicosModel.Store.FK_Clientes_Clientes_AfiliadorId">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Clientes1" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Implementos_Servicios_ServicioId" Association="PaseosEcologicosModel.Store.FK_Implementos_Servicios_ServicioId">
+            <End Role="Servicios" EntitySet="Servicios" />
+            <End Role="Implementos" EntitySet="Implementos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservaciones_Clientes_ClienteId" Association="PaseosEcologicosModel.Store.FK_Reservaciones_Clientes_ClienteId">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Reservaciones" EntitySet="Reservaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservaciones_Paseos_PaseoId" Association="PaseosEcologicosModel.Store.FK_Reservaciones_Paseos_PaseoId">
+            <End Role="Paseos" EntitySet="Paseos" />
+            <End Role="Reservaciones" EntitySet="Reservaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicios_Consumidos_ReservacionId" Association="PaseosEcologicosModel.Store.FK_Servicios_Consumidos_ReservacionId">
+            <End Role="Reservaciones" EntitySet="Reservaciones" />
+            <End Role="Servicios_Consumidos" EntitySet="Servicios_Consumidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicios_Tipos_De_Servicios_TipoId" Association="PaseosEcologicosModel.Store.FK_Servicios_Tipos_De_Servicios_TipoId">
+            <End Role="Tipos_De_Servicios" EntitySet="Tipos_De_Servicios" />
+            <End Role="Servicios" EntitySet="Servicios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiciosConsumidos_Clientes_ClienteId" Association="PaseosEcologicosModel.Store.FK_ServiciosConsumidos_Clientes_ClienteId">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Servicios_Consumidos" EntitySet="Servicios_Consumidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiciosConsumidos_Servicios_ServicioId" Association="PaseosEcologicosModel.Store.FK_ServiciosConsumidos_Servicios_ServicioId">
+            <End Role="Servicios" EntitySet="Servicios" />
+            <End Role="Servicios_Consumidos" EntitySet="Servicios_Consumidos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AfiliadorId" Type="int" />
+          <Property Name="Nombre" Type="varchar" MaxLength="60" />
+          <Property Name="Apellido" Type="varchar" MaxLength="60" />
+          <Property Name="Celular" Type="varchar" MaxLength="15" />
+          <Property Name="Correo" Type="text" />
+        </EntityType>
+        <EntityType Name="Implementos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ServicioId" Type="int" />
+          <Property Name="Titulo" Type="varchar" MaxLength="60" />
+          <Property Name="Descripcion" Type="text" />
+          <Property Name="Precio" Type="money" />
+        </EntityType>
+        <EntityType Name="Paseos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Titulo" Type="varchar" MaxLength="60" />
+          <Property Name="Descripcion" Type="text" />
+          <Property Name="FechaDePartida" Type="datetime" />
+          <Property Name="Precio" Type="money" />
+        </EntityType>
+        <EntityType Name="Reservaciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ClienteId" Type="int" />
+          <Property Name="PaseoId" Type="int" />
+          <Property Name="Cantidad_De_Personas" Type="int" />
+          <Property Name="Codigo_Verificacion" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Servicios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TipoId" Type="int" />
+          <Property Name="Titulo" Type="varchar" MaxLength="60" />
+          <Property Name="Descripcion" Type="text" />
+          <Property Name="Precio" Type="money" />
+          <Property Name="Implementos_Obligatorios" Type="bit" />
+        </EntityType>
+        <EntityType Name="Servicios_Consumidos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ReservacionId" Type="int" />
+          <Property Name="ClienteId" Type="int" />
+          <Property Name="ServicioId" Type="int" />
+        </EntityType>
+        <EntityType Name="Tipos_De_Servicios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Titulo" Type="varchar" MaxLength="60" />
+          <Property Name="Descripcion" Type="text" />
+        </EntityType>
+        <Association Name="FK_Clientes_Clientes_AfiliadorId">
+          <End Role="Clientes" Type="PaseosEcologicosModel.Store.Clientes" Multiplicity="0..1" />
+          <End Role="Clientes1" Type="PaseosEcologicosModel.Store.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clientes1">
+              <PropertyRef Name="AfiliadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Implementos_Servicios_ServicioId">
+          <End Role="Servicios" Type="PaseosEcologicosModel.Store.Servicios" Multiplicity="0..1" />
+          <End Role="Implementos" Type="PaseosEcologicosModel.Store.Implementos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Implementos">
+              <PropertyRef Name="ServicioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservaciones_Clientes_ClienteId">
+          <End Role="Clientes" Type="PaseosEcologicosModel.Store.Clientes" Multiplicity="0..1" />
+          <End Role="Reservaciones" Type="PaseosEcologicosModel.Store.Reservaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reservaciones">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservaciones_Paseos_PaseoId">
+          <End Role="Paseos" Type="PaseosEcologicosModel.Store.Paseos" Multiplicity="0..1" />
+          <End Role="Reservaciones" Type="PaseosEcologicosModel.Store.Reservaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paseos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reservaciones">
+              <PropertyRef Name="PaseoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicios_Consumidos_ReservacionId">
+          <End Role="Reservaciones" Type="PaseosEcologicosModel.Store.Reservaciones" Multiplicity="0..1" />
+          <End Role="Servicios_Consumidos" Type="PaseosEcologicosModel.Store.Servicios_Consumidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reservaciones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servicios_Consumidos">
+              <PropertyRef Name="ReservacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicios_Tipos_De_Servicios_TipoId">
+          <End Role="Tipos_De_Servicios" Type="PaseosEcologicosModel.Store.Tipos_De_Servicios" Multiplicity="0..1" />
+          <End Role="Servicios" Type="PaseosEcologicosModel.Store.Servicios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipos_De_Servicios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servicios">
+              <PropertyRef Name="TipoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiciosConsumidos_Clientes_ClienteId">
+          <End Role="Clientes" Type="PaseosEcologicosModel.Store.Clientes" Multiplicity="0..1" />
+          <End Role="Servicios_Consumidos" Type="PaseosEcologicosModel.Store.Servicios_Consumidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servicios_Consumidos">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiciosConsumidos_Servicios_ServicioId">
+          <End Role="Servicios" Type="PaseosEcologicosModel.Store.Servicios" Multiplicity="0..1" />
+          <End Role="Servicios_Consumidos" Type="PaseosEcologicosModel.Store.Servicios_Consumidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servicios_Consumidos">
+              <PropertyRef Name="ServicioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PaseosEcologicosModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="PaseosEcologicosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clientes" EntityType="PaseosEcologicosModel.Clientes" />
+          <EntitySet Name="Implementos" EntityType="PaseosEcologicosModel.Implementos" />
+          <EntitySet Name="Paseos" EntityType="PaseosEcologicosModel.Paseos" />
+          <EntitySet Name="Reservaciones" EntityType="PaseosEcologicosModel.Reservaciones" />
+          <EntitySet Name="Servicios" EntityType="PaseosEcologicosModel.Servicios" />
+          <EntitySet Name="Servicios_Consumidos" EntityType="PaseosEcologicosModel.Servicios_Consumidos" />
+          <EntitySet Name="Tipos_De_Servicios" EntityType="PaseosEcologicosModel.Tipos_De_Servicios" />
+          <AssociationSet Name="FK_Clientes_Clientes_AfiliadorId" Association="PaseosEcologicosModel.FK_Clientes_Clientes_AfiliadorId">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Clientes1" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservaciones_Clientes_ClienteId" Association="PaseosEcologicosModel.FK_Reservaciones_Clientes_ClienteId">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Reservaciones" EntitySet="Reservaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiciosConsumidos_Clientes_ClienteId" Association="PaseosEcologicosModel.FK_ServiciosConsumidos_Clientes_ClienteId">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Servicios_Consumidos" EntitySet="Servicios_Consumidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Implementos_Servicios_ServicioId" Association="PaseosEcologicosModel.FK_Implementos_Servicios_ServicioId">
+            <End Role="Servicios" EntitySet="Servicios" />
+            <End Role="Implementos" EntitySet="Implementos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservaciones_Paseos_PaseoId" Association="PaseosEcologicosModel.FK_Reservaciones_Paseos_PaseoId">
+            <End Role="Paseos" EntitySet="Paseos" />
+            <End Role="Reservaciones" EntitySet="Reservaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicios_Consumidos_ReservacionId" Association="PaseosEcologicosModel.FK_Servicios_Consumidos_ReservacionId">
+            <End Role="Reservaciones" EntitySet="Reservaciones" />
+            <End Role="Servicios_Consumidos" EntitySet="Servicios_Consumidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicios_Tipos_De_Servicios_TipoId" Association="PaseosEcologicosModel.FK_Servicios_Tipos_De_Servicios_TipoId">
+            <End Role="Tipos_De_Servicios" EntitySet="Tipos_De_Servicios" />
+            <End Role="Servicios" EntitySet="Servicios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiciosConsumidos_Servicios_ServicioId" Association="PaseosEcologicosModel.FK_ServiciosConsumidos_Servicios_ServicioId">
+            <End Role="Servicios" EntitySet="Servicios" />
+            <End Role="Servicios_Consumidos" EntitySet="Servicios_Consumidos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AfiliadorId" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="Apellido" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="Celular" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="Correo" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Clientes1" Relationship="PaseosEcologicosModel.FK_Clientes_Clientes_AfiliadorId" FromRole="Clientes" ToRole="Clientes1" />
+          <NavigationProperty Name="Clientes2" Relationship="PaseosEcologicosModel.FK_Clientes_Clientes_AfiliadorId" FromRole="Clientes1" ToRole="Clientes" />
+          <NavigationProperty Name="Reservaciones" Relationship="PaseosEcologicosModel.FK_Reservaciones_Clientes_ClienteId" FromRole="Clientes" ToRole="Reservaciones" />
+          <NavigationProperty Name="Servicios_Consumidos" Relationship="PaseosEcologicosModel.FK_ServiciosConsumidos_Clientes_ClienteId" FromRole="Clientes" ToRole="Servicios_Consumidos" />
+        </EntityType>
+        <EntityType Name="Implementos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServicioId" Type="Int32" />
+          <Property Name="Titulo" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Precio" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Servicios" Relationship="PaseosEcologicosModel.FK_Implementos_Servicios_ServicioId" FromRole="Implementos" ToRole="Servicios" />
+        </EntityType>
+        <EntityType Name="Paseos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Titulo" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="FechaDePartida" Type="DateTime" Precision="3" />
+          <Property Name="Precio" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Reservaciones" Relationship="PaseosEcologicosModel.FK_Reservaciones_Paseos_PaseoId" FromRole="Paseos" ToRole="Reservaciones" />
+        </EntityType>
+        <EntityType Name="Reservaciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClienteId" Type="Int32" />
+          <Property Name="PaseoId" Type="Int32" />
+          <Property Name="Cantidad_De_Personas" Type="Int32" />
+          <Property Name="Codigo_Verificacion" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Clientes" Relationship="PaseosEcologicosModel.FK_Reservaciones_Clientes_ClienteId" FromRole="Reservaciones" ToRole="Clientes" />
+          <NavigationProperty Name="Paseos" Relationship="PaseosEcologicosModel.FK_Reservaciones_Paseos_PaseoId" FromRole="Reservaciones" ToRole="Paseos" />
+          <NavigationProperty Name="Servicios_Consumidos" Relationship="PaseosEcologicosModel.FK_Servicios_Consumidos_ReservacionId" FromRole="Reservaciones" ToRole="Servicios_Consumidos" />
+        </EntityType>
+        <EntityType Name="Servicios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoId" Type="Int32" />
+          <Property Name="Titulo" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Precio" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Implementos_Obligatorios" Type="Boolean" />
+          <NavigationProperty Name="Implementos" Relationship="PaseosEcologicosModel.FK_Implementos_Servicios_ServicioId" FromRole="Servicios" ToRole="Implementos" />
+          <NavigationProperty Name="Tipos_De_Servicios" Relationship="PaseosEcologicosModel.FK_Servicios_Tipos_De_Servicios_TipoId" FromRole="Servicios" ToRole="Tipos_De_Servicios" />
+          <NavigationProperty Name="Servicios_Consumidos" Relationship="PaseosEcologicosModel.FK_ServiciosConsumidos_Servicios_ServicioId" FromRole="Servicios" ToRole="Servicios_Consumidos" />
+        </EntityType>
+        <EntityType Name="Servicios_Consumidos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReservacionId" Type="Int32" />
+          <Property Name="ClienteId" Type="Int32" />
+          <Property Name="ServicioId" Type="Int32" />
+          <NavigationProperty Name="Clientes" Relationship="PaseosEcologicosModel.FK_ServiciosConsumidos_Clientes_ClienteId" FromRole="Servicios_Consumidos" ToRole="Clientes" />
+          <NavigationProperty Name="Reservaciones" Relationship="PaseosEcologicosModel.FK_Servicios_Consumidos_ReservacionId" FromRole="Servicios_Consumidos" ToRole="Reservaciones" />
+          <NavigationProperty Name="Servicios" Relationship="PaseosEcologicosModel.FK_ServiciosConsumidos_Servicios_ServicioId" FromRole="Servicios_Consumidos" ToRole="Servicios" />
+        </EntityType>
+        <EntityType Name="Tipos_De_Servicios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Titulo" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Servicios" Relationship="PaseosEcologicosModel.FK_Servicios_Tipos_De_Servicios_TipoId" FromRole="Tipos_De_Servicios" ToRole="Servicios" />
+        </EntityType>
+        <Association Name="FK_Clientes_Clientes_AfiliadorId">
+          <End Role="Clientes" Type="PaseosEcologicosModel.Clientes" Multiplicity="0..1" />
+          <End Role="Clientes1" Type="PaseosEcologicosModel.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clientes1">
+              <PropertyRef Name="AfiliadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservaciones_Clientes_ClienteId">
+          <End Role="Clientes" Type="PaseosEcologicosModel.Clientes" Multiplicity="0..1" />
+          <End Role="Reservaciones" Type="PaseosEcologicosModel.Reservaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reservaciones">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiciosConsumidos_Clientes_ClienteId">
+          <End Role="Clientes" Type="PaseosEcologicosModel.Clientes" Multiplicity="0..1" />
+          <End Role="Servicios_Consumidos" Type="PaseosEcologicosModel.Servicios_Consumidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servicios_Consumidos">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Implementos_Servicios_ServicioId">
+          <End Role="Servicios" Type="PaseosEcologicosModel.Servicios" Multiplicity="0..1" />
+          <End Role="Implementos" Type="PaseosEcologicosModel.Implementos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Implementos">
+              <PropertyRef Name="ServicioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservaciones_Paseos_PaseoId">
+          <End Role="Paseos" Type="PaseosEcologicosModel.Paseos" Multiplicity="0..1" />
+          <End Role="Reservaciones" Type="PaseosEcologicosModel.Reservaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paseos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reservaciones">
+              <PropertyRef Name="PaseoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicios_Consumidos_ReservacionId">
+          <End Role="Reservaciones" Type="PaseosEcologicosModel.Reservaciones" Multiplicity="0..1" />
+          <End Role="Servicios_Consumidos" Type="PaseosEcologicosModel.Servicios_Consumidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reservaciones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servicios_Consumidos">
+              <PropertyRef Name="ReservacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicios_Tipos_De_Servicios_TipoId">
+          <End Role="Tipos_De_Servicios" Type="PaseosEcologicosModel.Tipos_De_Servicios" Multiplicity="0..1" />
+          <End Role="Servicios" Type="PaseosEcologicosModel.Servicios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipos_De_Servicios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servicios">
+              <PropertyRef Name="TipoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiciosConsumidos_Servicios_ServicioId">
+          <End Role="Servicios" Type="PaseosEcologicosModel.Servicios" Multiplicity="0..1" />
+          <End Role="Servicios_Consumidos" Type="PaseosEcologicosModel.Servicios_Consumidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servicios_Consumidos">
+              <PropertyRef Name="ServicioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PaseosEcologicosModelStoreContainer" CdmEntityContainer="PaseosEcologicosEntities">
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="PaseosEcologicosModel.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AfiliadorId" ColumnName="AfiliadorId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Implementos">
+            <EntityTypeMapping TypeName="PaseosEcologicosModel.Implementos">
+              <MappingFragment StoreEntitySet="Implementos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ServicioId" ColumnName="ServicioId" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paseos">
+            <EntityTypeMapping TypeName="PaseosEcologicosModel.Paseos">
+              <MappingFragment StoreEntitySet="Paseos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="FechaDePartida" ColumnName="FechaDePartida" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservaciones">
+            <EntityTypeMapping TypeName="PaseosEcologicosModel.Reservaciones">
+              <MappingFragment StoreEntitySet="Reservaciones">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+                <ScalarProperty Name="PaseoId" ColumnName="PaseoId" />
+                <ScalarProperty Name="Cantidad_De_Personas" ColumnName="Cantidad_De_Personas" />
+                <ScalarProperty Name="Codigo_Verificacion" ColumnName="Codigo_Verificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicios">
+            <EntityTypeMapping TypeName="PaseosEcologicosModel.Servicios">
+              <MappingFragment StoreEntitySet="Servicios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TipoId" ColumnName="TipoId" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Implementos_Obligatorios" ColumnName="Implementos_Obligatorios" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicios_Consumidos">
+            <EntityTypeMapping TypeName="PaseosEcologicosModel.Servicios_Consumidos">
+              <MappingFragment StoreEntitySet="Servicios_Consumidos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ReservacionId" ColumnName="ReservacionId" />
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+                <ScalarProperty Name="ServicioId" ColumnName="ServicioId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipos_De_Servicios">
+            <EntityTypeMapping TypeName="PaseosEcologicosModel.Tipos_De_Servicios">
+              <MappingFragment StoreEntitySet="Tipos_De_Servicios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

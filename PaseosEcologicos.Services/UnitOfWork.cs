@@ -13,6 +13,12 @@ namespace PaseosEcologicos.Services
      
         // list of repository fields
         private Repository<Reservaciones> reservaciones;
+        private Repository<Clientes> clientes;
+        private Repository<Paseos> paseos;
+        private Repository<Servicios> servicios;
+        private Repository<Servicios_Consumidos> serviciosConsumidos;
+        private Repository<Tipos_De_Servicios> tiposDeServicios;
+        private Repository<Implementos> implementos;
 
 
         // list of repository fields properties
@@ -28,7 +34,78 @@ namespace PaseosEcologicos.Services
                 return reservaciones;
             }
         }
-        
+        public Repository<Clientes> Clientes
+        {
+            get
+            {
+                if (clientes == null)
+                {
+                    clientes = new Repository<Clientes>(context);
+                }
+
+                return clientes;
+            }
+        }
+        public Repository<Implementos> Implementos
+        {
+            get
+            {
+                if (implementos == null)
+                {
+                    implementos = new Repository<Implementos>(context);
+                }
+
+                return implementos;
+            }
+        }
+        public Repository<Paseos> Paseos
+        {
+            get
+            {
+                if (paseos == null)
+                {
+                    paseos = new Repository<Paseos>(context);
+                }
+
+                return paseos;
+            }
+        }
+        public Repository<Servicios> Servicios
+        {
+            get
+            {
+                if (servicios == null)
+                {
+                    servicios = new Repository<Servicios>(context);
+                }
+
+                return servicios;
+            }
+        }
+        public Repository<Servicios_Consumidos> ServiciosConsumidos
+        {
+            get
+            {
+                if (serviciosConsumidos == null)
+                {
+                    serviciosConsumidos = new Repository<Servicios_Consumidos>(context);
+                }
+
+                return serviciosConsumidos;
+            }
+        }
+        public Repository<Tipos_De_Servicios> TiposDeServicios
+        {
+            get
+            {
+                if (tiposDeServicios == null)
+                {
+                    tiposDeServicios = new Repository<Tipos_De_Servicios>(context);
+                }
+
+                return tiposDeServicios;
+            }
+        }
         
         public UnitOfWork(DbContext _context)
         {
@@ -37,7 +114,7 @@ namespace PaseosEcologicos.Services
 
         public UnitOfWork()
         {
-            context = new DbContext("PaseosEcologicosEntities");
+            context = new PaseosEcologicosEntities();
         }
 
         public void Commit()

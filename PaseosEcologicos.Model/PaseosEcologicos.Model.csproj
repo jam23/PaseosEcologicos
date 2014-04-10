@@ -30,8 +30,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,8 +50,69 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Clientes.cs">
+      <DependentUpon>PaseosEcologicosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Implementos.cs">
+      <DependentUpon>PaseosEcologicosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Paseos.cs">
+      <DependentUpon>PaseosEcologicosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaseosEcologicosModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaseosEcologicosModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaseosEcologicosModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaseosEcologicosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaseosEcologicosModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaseosEcologicosModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reservaciones.cs" />
+    <Compile Include="Reservaciones.cs">
+      <DependentUpon>PaseosEcologicosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios.cs">
+      <DependentUpon>PaseosEcologicosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios_Consumidos.cs">
+      <DependentUpon>PaseosEcologicosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tipos_De_Servicios.cs">
+      <DependentUpon>PaseosEcologicosModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="PaseosEcologicosModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PaseosEcologicosModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="PaseosEcologicosModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PaseosEcologicosModel.edmx</DependentUpon>
+      <LastGenOutput>PaseosEcologicosModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="PaseosEcologicosModel.edmx.diagram">
+      <DependentUpon>PaseosEcologicosModel.edmx</DependentUpon>
+    </None>
+    <None Include="PaseosEcologicosModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PaseosEcologicosModel.edmx</DependentUpon>
+      <LastGenOutput>PaseosEcologicosModel.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

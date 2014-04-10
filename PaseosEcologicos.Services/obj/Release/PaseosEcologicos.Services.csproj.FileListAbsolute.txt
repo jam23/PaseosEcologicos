@@ -1,0 +1,12 @@
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\bin\Release\PaseosEcologicos.Services.dll.config
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\bin\Release\PaseosEcologicos.Services.dll
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\bin\Release\PaseosEcologicos.Services.pdb
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\bin\Release\EntityFramework.dll
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\bin\Release\PaseosEcologicos.Model.dll
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\bin\Release\PaseosEcologicos.Model.pdb
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\bin\Release\EntityFramework.xml
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\obj\Release\PaseosEcologicos.Services.csprojResolveAssemblyReference.cache
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\obj\Release\PaseosEcologicos.Services.dll
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\obj\Release\PaseosEcologicos.Services.pdb

@@ -15,10 +15,10 @@ namespace PaseosEcologicos.Controllers
         private Factory factory = new Factory();
 
         // GET api/reservacion
-        public HttpResponseMessage Get()
-        {
-            return Request.CreateResponse(HttpStatusCode.OK, "");
-        }
+        //public HttpResponseMessage Get()
+        //{
+        //    return Request.CreateResponse(HttpStatusCode.OK, "");
+        //}
 
         //// GET api/reservacion/5
         //public string Get(int id)
@@ -33,6 +33,7 @@ namespace PaseosEcologicos.Controllers
             {
                 var reservacion = factory.Create(_reservacion);
                 uow.Reservaciones.Add(reservacion);
+                uow.Commit();
                 return Request.CreateResponse(HttpStatusCode.OK, "Reservacion creada");
             }
             catch (Exception ex)

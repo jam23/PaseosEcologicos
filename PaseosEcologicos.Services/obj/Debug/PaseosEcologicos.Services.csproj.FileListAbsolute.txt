@@ -10,3 +10,15 @@ C:\Users\t_felizl\Copy\ADelRosario\Projects\Paseos Ecologicos\PaseosEcologicos\P
 C:\Users\t_felizl\Copy\ADelRosario\Projects\Paseos Ecologicos\PaseosEcologicos\PaseosEcologicos.Services\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\t_felizl\Copy\ADelRosario\Projects\Paseos Ecologicos\PaseosEcologicos\PaseosEcologicos.Services\obj\Debug\PaseosEcologicos.Services.dll
 C:\Users\t_felizl\Copy\ADelRosario\Projects\Paseos Ecologicos\PaseosEcologicos\PaseosEcologicos.Services\obj\Debug\PaseosEcologicos.Services.pdb
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\bin\Debug\PaseosEcologicos.Services.dll.config
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\bin\Debug\PaseosEcologicos.Services.dll
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\bin\Debug\PaseosEcologicos.Services.pdb
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\bin\Debug\EntityFramework.dll
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\bin\Debug\PaseosEcologicos.Model.dll
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\bin\Debug\PaseosEcologicos.Model.pdb
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\bin\Debug\EntityFramework.xml
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\obj\Debug\PaseosEcologicos.Services.csprojResolveAssemblyReference.cache
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\obj\Debug\PaseosEcologicos.Services.dll
+C:\Users\Jam.23\Documents\GitHub\PaseosEcologicos\PaseosEcologicos.Services\obj\Debug\PaseosEcologicos.Services.pdb

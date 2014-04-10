@@ -1,0 +1,1 @@
+﻿var PE = PE || angular.module('PE', ['ngResource', 'ngRoute']);

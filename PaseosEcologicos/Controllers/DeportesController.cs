@@ -17,21 +17,7 @@ namespace PaseosEcologicos.Controllers
         // GET api/deportes
         public HttpResponseMessage Get()
         {
-            var deportes = new List<Deporte>() { 
-                new Deporte{
-                    Id = 1,
-                    Titulo = "Deporte 1"
-                },
-                new Deporte{
-                    Id = 2,
-                    Titulo = "Deporte 2"
-                },
-                new Deporte{
-                    Id = 3,
-                    Titulo = "Deporte 3"
-                },
-            };
-
+            var deportes = uow.Servicios.GetAll().Where(s => s.TipoId == 3);
             return Request.CreateResponse(HttpStatusCode.OK, deportes);
         }
 
