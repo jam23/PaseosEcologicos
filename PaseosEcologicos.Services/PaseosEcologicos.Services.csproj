@@ -51,6 +51,7 @@
     <Compile Include="DTOS\Cliente.cs" />
     <Compile Include="DTOS\Comida.cs" />
     <Compile Include="DTOS\Deporte.cs" />
+    <Compile Include="DTOS\ReservacionConCodigo.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="IMailService.cs" />
     <Compile Include="IRepository.cs" />

@@ -89,14 +89,17 @@
                         <div class="col-sm-8">
                             <div class="form-group">
                                 <label for="codigoDeReservacion">Codigo de reservacion</label>
-                                <input type="text" name="codigoDeReservacion" value="" class="form-control" ng-model="reservacion.cliente.codigoDeReservacion" />
+                                <input type="text" name="codigoDeReservacion" value="" class="form-control" ng-model="reservacion.cliente.codigoDeReservacion" ng-disabled="reservacionValida"/>
                                 <br />
-                                <button type="button" class="btn btn-default" name="validarCodigoDeReservacion">Validar codigo</button>
+                                <button type="button" class="btn btn-default" name="validarCodigoDeReservacion" ng-click="validarCodigo()" ng-disabled="reservacionValida">Validar codigo</button>
+                                <p ng-show="reservacionValida" class="text-success">
+                                    Su codigo es valido. Nombre de afiliador: <b>{{reservacionConCodigo.cliente.nombre}} {{reservacionConCodigo.cliente.apellido}}</b>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="wizard-card" data-cardname="reservacionDeGrupo">
+                <div class="wizard-card" ng-show="reservacion.cliente.codigoDeReservacion === '' " data-cardname="reservacionDeGrupo">
                     <h3>Reservacion de grupo</h3>
                     <div class="wizard-input-section">
                         <div class="form-group">
@@ -176,7 +179,7 @@
                     <span>Nombre : <b>{{reservacion.cliente.nombre}} {{reservacion.cliente.apellido}}</b></span><br />
                     <span>Telefono: {{reservacion.cliente.telefono}}, Correo electronico: {{reservacion.cliente.email}}</span>
                     <br />
-                    <span ng-show="reservacion.codigoDeReservacion != ''">Codigo de reservacion: <b>{{reservacion.codigoDeReservacion}}</b>
+                    <span ng-show="reservacion.codigoDeReservacion !== ''">Codigo de reservacion: <b>{{reservacion.codigoDeReservacion}}</b>
                     </span>
                     <span ng-show="reservacion.cantidadDePersonas > 0">Reservacion para <b>{{reservacion.cantidadDePersonas}}</b> personas
                     </span>

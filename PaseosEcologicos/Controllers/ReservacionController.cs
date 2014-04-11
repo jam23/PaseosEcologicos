@@ -15,16 +15,26 @@ namespace PaseosEcologicos.Controllers
         private Factory factory = new Factory();
 
         // GET api/reservacion
-        //public HttpResponseMessage Get()
-        //{
-        //    return Request.CreateResponse(HttpStatusCode.OK, "");
-        //}
+        public HttpResponseMessage Get()
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, "");
+        }
 
         //// GET api/reservacion/5
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        public HttpResponseMessage Get(string id)
+        {
+            var _reservacionConCodigo = uow.Reservaciones.GetAll()
+                .Where(r => r.Codigo_Verificacion == id).SingleOrDefault();
+
+            if (_reservacionConCodigo == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "No se encontro esta reservacion");
+            }
+
+            var reservacionConCodigo = factory.Create(_reservacionConCodigo);
+
+            return Request.CreateResponse(HttpStatusCode.OK, reservacionConCodigo);
+        }
 
         // POST api/reservacion
         public HttpResponseMessage Post([FromBody]Reservacion _reservacion)
@@ -34,24 +44,49 @@ namespace PaseosEcologicos.Controllers
 
                 var reservacion = factory.Create(_reservacion);
                 var cliente = factory.Create(_reservacion.Cliente);
-                
-                uow.Clientes.Add(cliente);
-                uow.Commit();
-                
-                reservacion.ClienteId = cliente.Id;
-                reservacion.Codigo_Verificacion = DateTime.Now.ToString("yyMMddss") + cliente.Id.ToString();
-                reservacion.PaseoId = _reservacion.PaseoId;
-                
-                var comida = factory.Create(cliente.Id, _reservacion.Cliente.ComidaId);
-                var alojamiento = factory.Create(cliente.Id, _reservacion.Cliente.AlojamientoId);
-                var deporte = factory.Create(cliente.Id, _reservacion.Cliente.DeporteId);
 
-                reservacion.Servicios_Consumidos.Add(comida);
-                reservacion.Servicios_Consumidos.Add(alojamiento);
-                reservacion.Servicios_Consumidos.Add(deporte);
+                if (!String.IsNullOrEmpty(_reservacion.Cliente.CodigoDeReservacion))
+                {
+                    var __reservacion = uow.Reservaciones.GetAll().Where(r => r.Codigo_Verificacion == _reservacion.Cliente.CodigoDeReservacion).SingleOrDefault();
+                    cliente.AfiliadorId = factory.Create(_reservacion).ClienteId;
 
-                uow.Reservaciones.Add(reservacion);
-                uow.Commit();
+                    uow.Clientes.Add(cliente);
+                    uow.Commit();
+
+                    __reservacion.PaseoId = _reservacion.PaseoId;
+                    
+                    var comida = factory.Create(cliente.Id, _reservacion.Cliente.ComidaId);
+                    var alojamiento = factory.Create(cliente.Id, _reservacion.Cliente.AlojamientoId);
+                    var deporte = factory.Create(cliente.Id, _reservacion.Cliente.DeporteId);
+
+                    __reservacion.Servicios_Consumidos.Add(comida);
+                    __reservacion.Servicios_Consumidos.Add(alojamiento);
+                    __reservacion.Servicios_Consumidos.Add(deporte);
+
+                    uow.Reservaciones.Update(__reservacion);
+                    uow.Commit();
+                }
+                else
+                {
+
+                    uow.Clientes.Add(cliente);
+                    uow.Commit();
+
+                    reservacion.ClienteId = cliente.Id;
+                    reservacion.Codigo_Verificacion = DateTime.Now.ToString("yyMMddss") + cliente.Id.ToString();
+                    reservacion.PaseoId = _reservacion.PaseoId;
+
+                    var comida = factory.Create(cliente.Id, _reservacion.Cliente.ComidaId);
+                    var alojamiento = factory.Create(cliente.Id, _reservacion.Cliente.AlojamientoId);
+                    var deporte = factory.Create(cliente.Id, _reservacion.Cliente.DeporteId);
+
+                    reservacion.Servicios_Consumidos.Add(comida);
+                    reservacion.Servicios_Consumidos.Add(alojamiento);
+                    reservacion.Servicios_Consumidos.Add(deporte);
+
+                    uow.Reservaciones.Add(reservacion);
+                    uow.Commit();
+                }
 
                 //Send email confirmation
 

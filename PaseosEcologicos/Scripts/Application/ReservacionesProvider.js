@@ -1,3 +1,4 @@
 ﻿PE.service('ReservacionProvider', ['$resource', function ($resource) {
-    return $resource('api/reservacion');
+    var provider = $resource('api/reservacion/:codigo', {codigo:'@codigo'});
+    return provider;
 }]);

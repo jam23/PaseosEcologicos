@@ -16,6 +16,7 @@
         $scope.complete = function () {
             ReservacionProvider.save($scope.reservacion);
             $scope.reservacion = {};
+            $scope.reservacionConCodigo = {};
         };
 
         var encontrarServicio = function (servicios, id) {
@@ -44,4 +45,14 @@
         $scope.paseoSeleccionado = function (id) {
             return encontrarServicio($scope.paseos, id);
         };
+
+        $scope.validarCodigo = function () {
+            $scope.reservacionConCodigo = ReservacionProvider.get({codigo: $scope.reservacion.cliente.codigoDeReservacion });
+            if ($scope.reservacionConCodigo) {
+                $scope.reservacionValida = true;
+                return true;
+            }
+            return false;
+        };
+
     }]);
