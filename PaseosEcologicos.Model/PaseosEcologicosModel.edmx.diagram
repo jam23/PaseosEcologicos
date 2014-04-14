@@ -20,6 +20,7 @@
         <AssociationConnector Association="PaseosEcologicosModel.FK_Servicios_Consumidos_ReservacionId" ManuallyRouted="false" />
         <AssociationConnector Association="PaseosEcologicosModel.FK_Servicios_Tipos_De_Servicios_TipoId" ManuallyRouted="false" />
         <AssociationConnector Association="PaseosEcologicosModel.FK_ServiciosConsumidos_Servicios_ServicioId" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PaseosEcologicosModel.vReporteDeCosumo" Width="1.5" PointX="5.25" PointY="11.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

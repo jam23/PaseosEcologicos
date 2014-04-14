@@ -8,6 +8,25 @@
     <EntitySet Name="Servicios" EntityType="PaseosEcologicosModel.Store.Servicios" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Servicios_Consumidos" EntityType="PaseosEcologicosModel.Store.Servicios_Consumidos" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Tipos_De_Servicios" EntityType="PaseosEcologicosModel.Store.Tipos_De_Servicios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="vReporteDeCosumo" EntityType="PaseosEcologicosModel.Store.vReporteDeCosumo" store:Type="Views" store:Schema="dbo" store:Name="vReporteDeCosumo">
+      <DefiningQuery>SELECT 
+      [vReporteDeCosumo].[ReservacionId] AS [ReservacionId], 
+      [vReporteDeCosumo].[PaseoId] AS [PaseoId], 
+      [vReporteDeCosumo].[TituloDePaseo] AS [TituloDePaseo], 
+      [vReporteDeCosumo].[ClienteId] AS [ClienteId], 
+      [vReporteDeCosumo].[Cliente] AS [Cliente], 
+      [vReporteDeCosumo].[Celular] AS [Celular], 
+      [vReporteDeCosumo].[Correo] AS [Correo], 
+      [vReporteDeCosumo].[RepresentateId] AS [RepresentateId], 
+      [vReporteDeCosumo].[Representante] AS [Representante], 
+      [vReporteDeCosumo].[TelRepresentante] AS [TelRepresentante], 
+      [vReporteDeCosumo].[CorreoRepresentante] AS [CorreoRepresentante], 
+      [vReporteDeCosumo].[ServicioId] AS [ServicioId], 
+      [vReporteDeCosumo].[TipoDeServicio] AS [TipoDeServicio], 
+      [vReporteDeCosumo].[ServicioConsumido] AS [ServicioConsumido], 
+      [vReporteDeCosumo].[PrecioDeServicioConsumido] AS [PrecioDeServicioConsumido]
+      FROM [dbo].[vReporteDeCosumo] AS [vReporteDeCosumo]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_Clientes_Clientes_AfiliadorId" Association="PaseosEcologicosModel.Store.FK_Clientes_Clientes_AfiliadorId">
       <End Role="Clientes" EntitySet="Clientes" />
       <End Role="Clientes1" EntitySet="Clientes" />
@@ -109,6 +128,29 @@
     <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Titulo" Type="varchar" MaxLength="60" />
     <Property Name="Descripcion" Type="text" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'PaseosEcologicos.dbo.vReporteDeCosumo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="vReporteDeCosumo">
+    <Key>
+      <PropertyRef Name="ClienteId" />
+    </Key>
+    <Property Name="ReservacionId" Type="int" />
+    <Property Name="PaseoId" Type="int" />
+    <Property Name="TituloDePaseo" Type="varchar" MaxLength="60" />
+    <Property Name="ClienteId" Type="int" Nullable="false" />
+    <Property Name="Cliente" Type="varchar" MaxLength="121" />
+    <Property Name="Celular" Type="varchar" MaxLength="15" />
+    <Property Name="Correo" Type="text" />
+    <Property Name="RepresentateId" Type="int" />
+    <Property Name="Representante" Type="varchar" MaxLength="121" />
+    <Property Name="TelRepresentante" Type="varchar" MaxLength="15" />
+    <Property Name="CorreoRepresentante" Type="text" />
+    <Property Name="ServicioId" Type="int" />
+    <Property Name="TipoDeServicio" Type="varchar" MaxLength="60" />
+    <Property Name="ServicioConsumido" Type="varchar" MaxLength="60" />
+    <Property Name="PrecioDeServicioConsumido" Type="money" />
   </EntityType>
   <Association Name="FK_Clientes_Clientes_AfiliadorId">
     <End Role="Clientes" Type="PaseosEcologicosModel.Store.Clientes" Multiplicity="0..1" />

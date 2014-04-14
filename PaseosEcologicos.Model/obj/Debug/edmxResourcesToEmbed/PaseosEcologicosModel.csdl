@@ -40,6 +40,7 @@
       <End Role="Servicios" EntitySet="Servicios" />
       <End Role="Servicios_Consumidos" EntitySet="Servicios_Consumidos" />
     </AssociationSet>
+    <EntitySet Name="vReporteDeCosumo" EntityType="PaseosEcologicosModel.vReporteDeCosumo" />
   </EntityContainer>
   <EntityType Name="Clientes">
     <Key>
@@ -222,4 +223,24 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="vReporteDeCosumo">
+    <Key>
+      <PropertyRef Name="ClienteId" />
+    </Key>
+    <Property Type="Int32" Name="ReservacionId" />
+    <Property Type="Int32" Name="PaseoId" />
+    <Property Type="String" Name="TituloDePaseo" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ClienteId" Nullable="false" />
+    <Property Type="String" Name="Cliente" MaxLength="121" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Celular" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Correo" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="RepresentateId" />
+    <Property Type="String" Name="Representante" MaxLength="121" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TelRepresentante" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CorreoRepresentante" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ServicioId" />
+    <Property Type="String" Name="TipoDeServicio" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ServicioConsumido" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="PrecioDeServicioConsumido" Precision="19" Scale="4" />
+  </EntityType>
 </Schema>

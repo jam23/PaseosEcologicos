@@ -77,5 +77,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="vReporteDeCosumo">
+      <EntityTypeMapping TypeName="PaseosEcologicosModel.vReporteDeCosumo">
+        <MappingFragment StoreEntitySet="vReporteDeCosumo">
+          <ScalarProperty Name="PrecioDeServicioConsumido" ColumnName="PrecioDeServicioConsumido" />
+          <ScalarProperty Name="ServicioConsumido" ColumnName="ServicioConsumido" />
+          <ScalarProperty Name="TipoDeServicio" ColumnName="TipoDeServicio" />
+          <ScalarProperty Name="ServicioId" ColumnName="ServicioId" />
+          <ScalarProperty Name="CorreoRepresentante" ColumnName="CorreoRepresentante" />
+          <ScalarProperty Name="TelRepresentante" ColumnName="TelRepresentante" />
+          <ScalarProperty Name="Representante" ColumnName="Representante" />
+          <ScalarProperty Name="RepresentateId" ColumnName="RepresentateId" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+          <ScalarProperty Name="TituloDePaseo" ColumnName="TituloDePaseo" />
+          <ScalarProperty Name="PaseoId" ColumnName="PaseoId" />
+          <ScalarProperty Name="ReservacionId" ColumnName="ReservacionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -48,12 +48,10 @@ namespace PaseosEcologicos.Controllers
                 if (!String.IsNullOrEmpty(_reservacion.Cliente.CodigoDeReservacion))
                 {
                     var __reservacion = uow.Reservaciones.GetAll().Where(r => r.Codigo_Verificacion == _reservacion.Cliente.CodigoDeReservacion).SingleOrDefault();
-                    cliente.AfiliadorId = factory.Create(_reservacion).ClienteId;
+                    cliente.AfiliadorId = __reservacion.ClienteId;
 
                     uow.Clientes.Add(cliente);
                     uow.Commit();
-
-                    __reservacion.PaseoId = _reservacion.PaseoId;
                     
                     var comida = factory.Create(cliente.Id, _reservacion.Cliente.ComidaId);
                     var alojamiento = factory.Create(cliente.Id, _reservacion.Cliente.AlojamientoId);

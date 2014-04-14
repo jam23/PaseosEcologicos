@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PaseosEcologicosModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="PaseosEcologicosModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="PaseosEcologicosModelStoreContainer">
           <EntitySet Name="Clientes" EntityType="PaseosEcologicosModel.Store.Clientes" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Implementos" EntityType="PaseosEcologicosModel.Store.Implementos" store:Type="Tables" Schema="dbo" />
@@ -13,6 +13,25 @@
           <EntitySet Name="Servicios" EntityType="PaseosEcologicosModel.Store.Servicios" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Servicios_Consumidos" EntityType="PaseosEcologicosModel.Store.Servicios_Consumidos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Tipos_De_Servicios" EntityType="PaseosEcologicosModel.Store.Tipos_De_Servicios" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="vReporteDeCosumo" EntityType="PaseosEcologicosModel.Store.vReporteDeCosumo" store:Type="Views" store:Schema="dbo" store:Name="vReporteDeCosumo">
+            <DefiningQuery>SELECT 
+      [vReporteDeCosumo].[ReservacionId] AS [ReservacionId], 
+      [vReporteDeCosumo].[PaseoId] AS [PaseoId], 
+      [vReporteDeCosumo].[TituloDePaseo] AS [TituloDePaseo], 
+      [vReporteDeCosumo].[ClienteId] AS [ClienteId], 
+      [vReporteDeCosumo].[Cliente] AS [Cliente], 
+      [vReporteDeCosumo].[Celular] AS [Celular], 
+      [vReporteDeCosumo].[Correo] AS [Correo], 
+      [vReporteDeCosumo].[RepresentateId] AS [RepresentateId], 
+      [vReporteDeCosumo].[Representante] AS [Representante], 
+      [vReporteDeCosumo].[TelRepresentante] AS [TelRepresentante], 
+      [vReporteDeCosumo].[CorreoRepresentante] AS [CorreoRepresentante], 
+      [vReporteDeCosumo].[ServicioId] AS [ServicioId], 
+      [vReporteDeCosumo].[TipoDeServicio] AS [TipoDeServicio], 
+      [vReporteDeCosumo].[ServicioConsumido] AS [ServicioConsumido], 
+      [vReporteDeCosumo].[PrecioDeServicioConsumido] AS [PrecioDeServicioConsumido]
+      FROM [dbo].[vReporteDeCosumo] AS [vReporteDeCosumo]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Clientes_Clientes_AfiliadorId" Association="PaseosEcologicosModel.Store.FK_Clientes_Clientes_AfiliadorId">
             <End Role="Clientes" EntitySet="Clientes" />
             <End Role="Clientes1" EntitySet="Clientes" />
@@ -115,6 +134,29 @@
           <Property Name="Titulo" Type="varchar" MaxLength="60" />
           <Property Name="Descripcion" Type="text" />
         </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'PaseosEcologicos.dbo.vReporteDeCosumo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vReporteDeCosumo">
+          <Key>
+            <PropertyRef Name="ClienteId" />
+          </Key>
+          <Property Name="ReservacionId" Type="int" />
+          <Property Name="PaseoId" Type="int" />
+          <Property Name="TituloDePaseo" Type="varchar" MaxLength="60" />
+          <Property Name="ClienteId" Type="int" Nullable="false" />
+          <Property Name="Cliente" Type="varchar" MaxLength="121" />
+          <Property Name="Celular" Type="varchar" MaxLength="15" />
+          <Property Name="Correo" Type="text" />
+          <Property Name="RepresentateId" Type="int" />
+          <Property Name="Representante" Type="varchar" MaxLength="121" />
+          <Property Name="TelRepresentante" Type="varchar" MaxLength="15" />
+          <Property Name="CorreoRepresentante" Type="text" />
+          <Property Name="ServicioId" Type="int" />
+          <Property Name="TipoDeServicio" Type="varchar" MaxLength="60" />
+          <Property Name="ServicioConsumido" Type="varchar" MaxLength="60" />
+          <Property Name="PrecioDeServicioConsumido" Type="money" />
+        </EntityType>
         <Association Name="FK_Clientes_Clientes_AfiliadorId">
           <End Role="Clientes" Type="PaseosEcologicosModel.Store.Clientes" Multiplicity="0..1" />
           <End Role="Clientes1" Type="PaseosEcologicosModel.Store.Clientes" Multiplicity="*" />
@@ -211,8 +253,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PaseosEcologicosModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -256,6 +297,7 @@
             <End Role="Servicios" EntitySet="Servicios" />
             <End Role="Servicios_Consumidos" EntitySet="Servicios_Consumidos" />
           </AssociationSet>
+          <EntitySet Name="vReporteDeCosumo" EntityType="PaseosEcologicosModel.vReporteDeCosumo" />
         </EntityContainer>
         <EntityType Name="Clientes">
           <Key>
@@ -438,6 +480,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="vReporteDeCosumo">
+          <Key>
+            <PropertyRef Name="ClienteId" />
+          </Key>
+          <Property Type="Int32" Name="ReservacionId" />
+          <Property Type="Int32" Name="PaseoId" />
+          <Property Type="String" Name="TituloDePaseo" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ClienteId" Nullable="false" />
+          <Property Type="String" Name="Cliente" MaxLength="121" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Celular" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Correo" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="RepresentateId" />
+          <Property Type="String" Name="Representante" MaxLength="121" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TelRepresentante" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CorreoRepresentante" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ServicioId" />
+          <Property Type="String" Name="TipoDeServicio" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ServicioConsumido" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="PrecioDeServicioConsumido" Precision="19" Scale="4" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -517,6 +579,27 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Titulo" ColumnName="Titulo" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vReporteDeCosumo">
+            <EntityTypeMapping TypeName="PaseosEcologicosModel.vReporteDeCosumo">
+              <MappingFragment StoreEntitySet="vReporteDeCosumo">
+                <ScalarProperty Name="PrecioDeServicioConsumido" ColumnName="PrecioDeServicioConsumido" />
+                <ScalarProperty Name="ServicioConsumido" ColumnName="ServicioConsumido" />
+                <ScalarProperty Name="TipoDeServicio" ColumnName="TipoDeServicio" />
+                <ScalarProperty Name="ServicioId" ColumnName="ServicioId" />
+                <ScalarProperty Name="CorreoRepresentante" ColumnName="CorreoRepresentante" />
+                <ScalarProperty Name="TelRepresentante" ColumnName="TelRepresentante" />
+                <ScalarProperty Name="Representante" ColumnName="Representante" />
+                <ScalarProperty Name="RepresentateId" ColumnName="RepresentateId" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+                <ScalarProperty Name="TituloDePaseo" ColumnName="TituloDePaseo" />
+                <ScalarProperty Name="PaseoId" ColumnName="PaseoId" />
+                <ScalarProperty Name="ReservacionId" ColumnName="ReservacionId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

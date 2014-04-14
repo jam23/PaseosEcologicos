@@ -11,19 +11,13 @@ namespace PaseosEcologicos.Model
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Resources;
+    
     public partial class Implementos
     {
         public int Id { get; set; }
-        [Required(ErrorMessage="El Deporte es requerido")]
         public Nullable<int> ServicioId { get; set; }
-
-        [Required(ErrorMessage = "El Titulo es Requerido")]
         public string Titulo { get; set; }
         public string Descripcion { get; set; }
-
-        [Required(ErrorMessage = "El precio es Requerido")]
         public Nullable<decimal> Precio { get; set; }
     
         public virtual Servicios Servicios { get; set; }

@@ -47,12 +47,17 @@
         };
 
         $scope.validarCodigo = function () {
-            $scope.reservacionConCodigo = ReservacionProvider.get({codigo: $scope.reservacion.cliente.codigoDeReservacion });
-            if ($scope.reservacionConCodigo) {
-                $scope.reservacionValida = true;
-                return true;
+            if ($scope.reservacion.cliente.codigoDeReservacion.length) {
+                var reservacionConCodigo = ReservacionProvider.get({ codigo: $scope.reservacion.cliente.codigoDeReservacion }, function () {
+                    $scope.reservacionValida = true;
+                    $window.nextButtonTextReset();
+                    $window.disableReservacionDeGruposAndPaseosCard();
+                }, function () {
+                    $scope.reservacionValida = false;
+                });
+
+                $scope.reservacionConCodigo = reservacionConCodigo;
             }
-            return false;
         };
 
     }]);

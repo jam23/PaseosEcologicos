@@ -87,6 +87,9 @@
     <Compile Include="Tipos_De_Servicios.cs">
       <DependentUpon>PaseosEcologicosModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="vReporteDeCosumo.cs">
+      <DependentUpon>PaseosEcologicosModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="PaseosEcologicosModel.edmx">

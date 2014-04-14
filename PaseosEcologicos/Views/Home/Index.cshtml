@@ -89,17 +89,21 @@
                         <div class="col-sm-8">
                             <div class="form-group">
                                 <label for="codigoDeReservacion">Codigo de reservacion</label>
-                                <input type="text" name="codigoDeReservacion" value="" class="form-control" ng-model="reservacion.cliente.codigoDeReservacion" ng-disabled="reservacionValida"/>
+                                <input type="text" name="codigoDeReservacion" value="" class="form-control" ng-model="reservacion.cliente.codigoDeReservacion" ng-disabled="reservacionValida" />
                                 <br />
                                 <button type="button" class="btn btn-default" name="validarCodigoDeReservacion" ng-click="validarCodigo()" ng-disabled="reservacionValida">Validar codigo</button>
-                                <p ng-show="reservacionValida" class="text-success">
-                                    Su codigo es valido. Nombre de afiliador: <b>{{reservacionConCodigo.cliente.nombre}} {{reservacionConCodigo.cliente.apellido}}</b>
-                                </p>
                             </div>
+                            <p ng-show="reservacionValida" class="text-success">
+                                Su codigo es valido. Nombre de afiliador: <b>{{reservacionConCodigo.cliente.nombre}} {{reservacionConCodigo.cliente.apellido}}</b>
+                            </p>
+                            <p ng-show="reservacionValida === false" class="text-danger">
+                                Codigo no valido.
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="wizard-card" ng-show="reservacion.cliente.codigoDeReservacion === '' " data-cardname="reservacionDeGrupo">
+                <!-- ng-show="reservacion.cliente.codigoDeReservacion === '' " -->
+                <div class="wizard-card" data-cardname="reservacionDeGrupo" data-skip="1">
                     <h3>Reservacion de grupo</h3>
                     <div class="wizard-input-section">
                         <div class="form-group">
@@ -110,7 +114,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="wizard-card" data-cardname="paseos">
+                <div class="wizard-card" data-cardname="paseos" data-skip="1">
                     <h3>Paseos</h3>
                     <div class="wizard-input-section">
                         <div class="form-group">
@@ -179,7 +183,7 @@
                     <span>Nombre : <b>{{reservacion.cliente.nombre}} {{reservacion.cliente.apellido}}</b></span><br />
                     <span>Telefono: {{reservacion.cliente.telefono}}, Correo electronico: {{reservacion.cliente.email}}</span>
                     <br />
-                    <span ng-show="reservacion.codigoDeReservacion !== ''">Codigo de reservacion: <b>{{reservacion.codigoDeReservacion}}</b>
+                    <span ng-show="reservacion.cliente.codigoDeReservacion !== ''">Codigo de reservacion: <b>{{reservacion.cliente.codigoDeReservacion}}</b>
                     </span>
                     <span ng-show="reservacion.cantidadDePersonas > 0">Reservacion para <b>{{reservacion.cantidadDePersonas}}</b> personas
                     </span>
@@ -188,7 +192,7 @@
                     <span>Alojamiento : <b>{{alojamientoSeleccionado(reservacion.cliente.alojamientoId)}}</b></span><br />
                     <span>Comida : <b>{{comidaSeleccionada(reservacion.cliente.comidaId)}}</b></span><br />
                     <span>Deporte : <b>{{deporteSeleccionado(reservacion.cliente.deporteId)}}</b></span><br />
-                    <button type="button" ng-click="complete()" class="completeButton" style="display:none; visibility:hidden;"></button>
+                    <button type="button" ng-click="complete()" class="completeButton" style="display: none; visibility: hidden;"></button>
                     @*<p>{{reservacion | json}}</p>*@
                     @*<p>
                         <button type="button" class="btn btn-success" ng-click="finish()">Estoy deacuerdo con el detalle de esta reservacion.</button>
@@ -222,12 +226,20 @@
 
             var wizard = $("#wizard").wizard(options);
 
+            wizard.disableCard = function (card, i) {
+                this.log("hiding card " + i);
+                this._cards[i].disable();
+                this.hideSubmitCards();
+                this.el.find('#' + card + ' input').removeAttr("data-validate");
+                // this.find('input').removeAttr("data-validate");
+                return this;
+            };
+
             wizard.on('closed', function () {
                 wizard.reset();
             });
 
             wizard.on('decrementCard', function () {
-                $('.btn .wizard-next').removeClass('btn-danger');
                 var activeCard = wizard.getActiveCard();
                 if (activeCard.name === 'codigoDeReservacion') {
                     wizard.changeNextButton('No tengo codigo de reservacion', '');
@@ -238,7 +250,6 @@
             });
 
             wizard.on('incrementCard', function () {
-                $('.btn .wizard-next').removeClass('btn-danger');
                 var activeCard = wizard.getActiveCard();
                 if (activeCard.name === 'codigoDeReservacion') {
                     wizard.changeNextButton('No tengo codigo de reservacion', '');
@@ -258,6 +269,22 @@
                 wizard.reset();
                 wizard.show();
             };
+
+            window.nextButtonTextReset = function () {
+                wizard.changeNextButton('Siguiente', '');
+            };
+
+            window.disableReservacionDeGruposAndPaseosCard = function () {
+                var cardReservacionDeGrupo = wizard.cards['reservacionDeGrupo'];
+                var cardPaseos = wizard.cards['paseos'];
+                $(cardReservacionDeGrupo.el[0]).remove();
+                $(cardPaseos.el[0]).remove();
+                wizard.find('.wizard-nav-item')[3].remove();
+                wizard.find('.wizard-nav-item')[2].remove();
+                wizard.disableCard('paseos', 3);
+                wizard.disableCard('reservacionDeGrupo', 2);
+            };
+
         });
     </script>
 }

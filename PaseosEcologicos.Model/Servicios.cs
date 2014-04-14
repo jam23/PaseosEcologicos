@@ -11,31 +11,20 @@ namespace PaseosEcologicos.Model
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    
     public partial class Servicios
     {
-        public Servicios() 
+        public Servicios()
         {
             this.Implementos = new HashSet<Implementos>();
             this.Servicios_Consumidos = new HashSet<Servicios_Consumidos>();
         }
     
         public int Id { get; set; }
-
-        [Required(ErrorMessage = "Seleccione el tipo de servicio que desea agregar")]
-        [Display(Name="Tipo de Servicio")]
         public Nullable<int> TipoId { get; set; }
-
-        [Required(ErrorMessage = "El campo Titulo es obligatorio")]
         public string Titulo { get; set; }
-
-        [Required(ErrorMessage = "El campo Descripción es obligatorio")]
-        [DataType(DataType.MultilineText)]
         public string Descripcion { get; set; }
-
-        [Required(ErrorMessage = "El campo Precio es obligatorio")]
         public Nullable<decimal> Precio { get; set; }
-
         public Nullable<bool> Implementos_Obligatorios { get; set; }
     
         public virtual ICollection<Implementos> Implementos { get; set; }
