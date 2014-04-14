@@ -239,26 +239,6 @@
                 wizard.reset();
             });
 
-            wizard.on('decrementCard', function () {
-                var activeCard = wizard.getActiveCard();
-                if (activeCard.name === 'codigoDeReservacion') {
-                    wizard.changeNextButton('No tengo codigo de reservacion', '');
-                }
-                if (activeCard.name === 'reservacionDeGrupo') {
-                    wizard.changeNextButton('No reservar para grupo', '');
-                }
-            });
-
-            wizard.on('incrementCard', function () {
-                var activeCard = wizard.getActiveCard();
-                if (activeCard.name === 'codigoDeReservacion') {
-                    wizard.changeNextButton('No tengo codigo de reservacion', '');
-                }
-                if (activeCard.name === 'reservacionDeGrupo') {
-                    wizard.changeNextButton('No reservar para grupo', '');
-                }
-            });
-
             wizard.on('submit', function () {
                 wizard.submitSuccess();
                 wizard.close();
@@ -268,10 +248,6 @@
             window.OpenWizard = function () {
                 wizard.reset();
                 wizard.show();
-            };
-
-            window.nextButtonTextReset = function () {
-                wizard.changeNextButton('Siguiente', '');
             };
 
             window.disableReservacionDeGruposAndPaseosCard = function () {

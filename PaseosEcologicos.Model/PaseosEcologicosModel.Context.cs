@@ -18,8 +18,8 @@ namespace PaseosEcologicos.Model
         public PaseosEcologicosEntities()
             : base("name=PaseosEcologicosEntities")
         {
-            Configuration.LazyLoadingEnabled = false;
-            Configuration.ProxyCreationEnabled = false;
+            //Configuration.LazyLoadingEnabled = false;
+            //Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -35,5 +35,7 @@ namespace PaseosEcologicos.Model
         public DbSet<Servicios_Consumidos> Servicios_Consumidos { get; set; }
         public DbSet<Tipos_De_Servicios> Tipos_De_Servicios { get; set; }
         public DbSet<vReporteDeCosumo> vReporteDeCosumo { get; set; }
+
+        public DbSet<PaseosEcologicos.Model.vReporteDeCosumo> vReporteDeCosumoes { get; set; }
     }
 }

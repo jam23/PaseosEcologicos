@@ -17,6 +17,7 @@
             ReservacionProvider.save($scope.reservacion);
             $scope.reservacion = {};
             $scope.reservacionConCodigo = {};
+            $window.location = '/';
         };
 
         var encontrarServicio = function (servicios, id) {
@@ -50,7 +51,6 @@
             if ($scope.reservacion.cliente.codigoDeReservacion.length) {
                 var reservacionConCodigo = ReservacionProvider.get({ codigo: $scope.reservacion.cliente.codigoDeReservacion }, function () {
                     $scope.reservacionValida = true;
-                    $window.nextButtonTextReset();
                     $window.disableReservacionDeGruposAndPaseosCard();
                 }, function () {
                     $scope.reservacionValida = false;

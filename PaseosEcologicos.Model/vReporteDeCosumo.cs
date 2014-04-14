@@ -11,9 +11,12 @@ namespace PaseosEcologicos.Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class vReporteDeCosumo
     {
+        [Key]
+        public int Id { get; set; }
         public Nullable<int> ReservacionId { get; set; }
         public Nullable<int> PaseoId { get; set; }
         public string TituloDePaseo { get; set; }
